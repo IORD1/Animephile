@@ -1,0 +1,800 @@
+[debug] [2023-08-21T13:45:19.131Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T13:45:19.136Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T13:45:19.136Z] CLI Version:   12.4.6
+[debug] [2023-08-21T13:45:19.137Z] Platform:      linux
+[debug] [2023-08-21T13:45:19.138Z] Node Version:  v18.15.0
+[debug] [2023-08-21T13:45:19.138Z] Time:          Mon Aug 21 2023 19:15:19 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T13:45:19.139Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T13:45:19.296Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T13:45:19.297Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T13:45:19.297Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T13:45:19.300Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T13:45:19.300Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T13:45:19.301Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T13:45:20.958Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T13:45:20.958Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T13:45:20.960Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T13:45:21.393Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T13:45:21.393Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T13:45:21.394Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T13:45:22.108Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T13:45:22.108Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T13:45:25.387Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T13:45:26.580Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T13:45:26.580Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T13:45:26.581Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T13:45:27.640Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T13:45:27.640Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T13:45:27.641Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T13:45:28.757Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T13:45:28.757Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] 
+./src/pages/components/Navbar.jsx
+35:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Use `<Image />` from `next/image` instead to utilize Image Optimization. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./src/pages/components/Search.js
+20:10  Warning: React Hook useEffect has a missing dependency: 'data'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info] info  - Creating an optimized production build...
+
+[info] warn  - Compiled with warnings
+
+
+[info] ./src/pages/components/Search.js
+Attempted import error: 'fetchData' is not exported from '../utils/getData' (imported as 'fetchData').
+
+./src/pages/components/Search.js
+Attempted import error: 'fetchData' is not exported from '../utils/getData' (imported as 'fetchData').
+
+
+[info] info  - Collecting page data...
+
+[info] 
+
+[info] > Build optimization failed: found pages without a React Component as default export in 
+pages/following
+pages/utils/addFirebase
+
+See https://nextjs.org/docs/messages/page-without-valid-component for more info.
+
+
+[debug] [2023-08-21T13:45:57.779Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T16:33:13.849Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T16:33:13.852Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T16:33:13.853Z] CLI Version:   12.4.6
+[debug] [2023-08-21T16:33:13.853Z] Platform:      linux
+[debug] [2023-08-21T16:33:13.853Z] Node Version:  v18.15.0
+[debug] [2023-08-21T16:33:13.958Z] Time:          Mon Aug 21 2023 22:03:13 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T16:33:13.958Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T16:33:14.117Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T16:33:14.118Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T16:33:14.118Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T16:33:14.134Z] > refreshing access token with scopes: []
+[debug] [2023-08-21T16:33:14.137Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-08-21T16:33:14.138Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-21T16:33:14.951Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-08-21T16:33:14.951Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-21T16:33:15.012Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T16:33:15.012Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T16:33:15.013Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:33:16.675Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T16:33:16.675Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:33:16.677Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:33:17.211Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:33:17.211Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:33:17.212Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:33:17.849Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:33:17.849Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] info  - Creating an optimized production build...
+
+[info] warn  - Compiled with warnings
+
+
+[info] ./src/pages/components/Search.js
+Attempted import error: 'fetchData' is not exported from '../utils/getData' (imported as 'fetchData').
+
+./src/pages/components/Search.js
+Attempted import error: 'fetchData' is not exported from '../utils/getData' (imported as 'fetchData').
+
+
+[info] info  - Collecting page data...
+
+[info] 
+
+[info] > Build optimization failed: found pages without a React Component as default export in 
+pages/following
+pages/utils/addFirebase
+
+See https://nextjs.org/docs/messages/page-without-valid-component for more info.
+
+
+[debug] [2023-08-21T16:35:20.327Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T16:37:23.949Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T16:37:23.953Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T16:37:23.954Z] CLI Version:   12.4.6
+[debug] [2023-08-21T16:37:23.955Z] Platform:      linux
+[debug] [2023-08-21T16:37:23.955Z] Node Version:  v18.15.0
+[debug] [2023-08-21T16:37:23.956Z] Time:          Mon Aug 21 2023 22:07:23 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T16:37:23.956Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T16:37:24.068Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T16:37:24.068Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T16:37:24.069Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T16:37:24.072Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T16:37:24.072Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T16:37:24.073Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:37:25.540Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T16:37:25.541Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:37:25.543Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:37:26.586Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:37:26.586Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:37:26.587Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:37:27.222Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:37:27.223Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:37:31.070Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T16:37:32.475Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:37:32.475Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:37:32.476Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T16:37:33.690Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:37:33.690Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:37:33.691Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T16:37:35.013Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T16:37:35.013Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] info  - Creating an optimized production build...
+
+[info] info  - Compiled successfully
+
+[info] info  - Collecting page data...
+
+[info] 
+
+[info] > Build optimization failed: found pages without a React Component as default export in 
+pages/components/Search
+pages/following
+pages/utils/addFirebase
+
+See https://nextjs.org/docs/messages/page-without-valid-component for more info.
+
+
+[debug] [2023-08-21T16:38:03.326Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T16:41:22.066Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T16:41:22.070Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T16:41:22.071Z] CLI Version:   12.4.6
+[debug] [2023-08-21T16:41:22.071Z] Platform:      linux
+[debug] [2023-08-21T16:41:22.072Z] Node Version:  v18.15.0
+[debug] [2023-08-21T16:41:22.073Z] Time:          Mon Aug 21 2023 22:11:22 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T16:41:22.073Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T16:41:22.184Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T16:41:22.185Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T16:41:22.185Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T16:41:22.188Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T16:41:22.188Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T16:41:22.189Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:41:23.756Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T16:41:23.756Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:41:23.758Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:41:24.309Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:41:24.310Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:41:24.310Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:41:24.745Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:41:24.746Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:41:28.267Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T16:41:29.404Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:41:29.404Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:41:29.406Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T16:41:30.545Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:41:30.545Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:41:30.546Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T16:41:31.609Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T16:41:31.609Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] info  - Creating an optimized production build...
+
+[info] Failed to compile.
+
+
+[info] ./src/pages/components/Navbar.jsx
+Module not found: Can't resolve './Search'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/pages/index.js
+
+./src/pages/index.js
+Module not found: Can't resolve './utils/getFirebase'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[info] 
+
+[info] > Build failed because of webpack errors
+
+[debug] [2023-08-21T16:41:51.082Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T16:43:29.036Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T16:43:29.041Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T16:43:29.042Z] CLI Version:   12.4.6
+[debug] [2023-08-21T16:43:29.042Z] Platform:      linux
+[debug] [2023-08-21T16:43:29.043Z] Node Version:  v18.15.0
+[debug] [2023-08-21T16:43:29.044Z] Time:          Mon Aug 21 2023 22:13:29 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T16:43:29.044Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T16:43:29.152Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T16:43:29.153Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T16:43:29.153Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T16:43:29.156Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T16:43:29.157Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T16:43:29.157Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:43:30.722Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T16:43:30.723Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:43:30.724Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:43:31.383Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:43:31.383Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:43:31.384Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:43:32.081Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:43:32.082Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:43:35.946Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T16:43:37.035Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:43:37.036Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:43:37.037Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T16:43:38.083Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:43:38.083Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:43:38.084Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T16:43:39.195Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T16:43:39.196Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] 
+Failed to compile.
+
+[info] 
+./src/pages/components/Navbar.jsx
+31:22  Error: 'Search' is not defined.  react/jsx-no-undef
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[debug] [2023-08-21T16:43:57.335Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T16:45:19.116Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T16:45:19.120Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T16:45:19.121Z] CLI Version:   12.4.6
+[debug] [2023-08-21T16:45:19.121Z] Platform:      linux
+[debug] [2023-08-21T16:45:19.122Z] Node Version:  v18.15.0
+[debug] [2023-08-21T16:45:19.122Z] Time:          Mon Aug 21 2023 22:15:19 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T16:45:19.122Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T16:45:19.232Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T16:45:19.233Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T16:45:19.233Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T16:45:19.236Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T16:45:19.236Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T16:45:19.237Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:45:20.858Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T16:45:20.859Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:45:20.860Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:45:21.364Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:45:21.364Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:45:21.365Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:45:21.772Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:45:21.772Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:45:25.308Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T16:45:26.450Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:45:26.451Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:45:26.452Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T16:45:27.440Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:45:27.441Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:45:27.442Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T16:45:28.773Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T16:45:28.773Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] info  - Creating an optimized production build...
+
+[info] info  - Compiled successfully
+
+[info] info  - Collecting page data...
+
+[info] 
+
+[info] > Build optimization failed: found page without a React Component as default export in 
+pages/following
+
+See https://nextjs.org/docs/messages/page-without-valid-component for more info.
+
+
+[debug] [2023-08-21T16:45:50.810Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T16:46:49.359Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T16:46:49.364Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T16:46:49.365Z] CLI Version:   12.4.6
+[debug] [2023-08-21T16:46:49.366Z] Platform:      linux
+[debug] [2023-08-21T16:46:49.366Z] Node Version:  v18.15.0
+[debug] [2023-08-21T16:46:49.367Z] Time:          Mon Aug 21 2023 22:16:49 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T16:46:49.367Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T16:46:49.485Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T16:46:49.486Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T16:46:49.486Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T16:46:49.489Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T16:46:49.489Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T16:46:49.489Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:46:51.095Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T16:46:51.096Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T16:46:51.097Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:46:51.536Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:46:51.536Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:46:51.537Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T16:46:51.971Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T16:46:51.972Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T16:46:55.494Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T16:46:56.537Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:46:56.537Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:46:56.539Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T16:46:57.578Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T16:46:57.578Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T16:46:57.579Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T16:46:58.693Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T16:46:58.693Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] info  - Linting and checking validity of types...
+
+[info] info  - Creating an optimized production build...
+
+[info] info  - Compiled successfully
+
+[info] info  - Collecting page data...
+
+[info] info  - Generating static pages (0/13)
+
+[info] TypeError: Cannot read properties of undefined (reading 'images')
+    at Newscard (/home/pratham/Videos/Animephile/.next/server/chunks/311.js:20:28)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/Newscard". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'images')
+    at Newscard (/home/pratham/Videos/Animephile/.next/server/chunks/311.js:20:28)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] info  - Generating static pages (3/13)
+
+[info] TypeError: Cannot read properties of undefined (reading 'images')
+    at Recentcard (/home/pratham/Videos/Animephile/.next/server/chunks/950.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/Recentcard". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'images')
+    at Recentcard (/home/pratham/Videos/Animephile/.next/server/chunks/950.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] info  - Generating static pages (6/13)
+
+[info] TypeError: Cannot read properties of undefined (reading 'split')
+    at Navbar (/home/pratham/Videos/Animephile/.next/server/chunks/895.js:55:51)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/Navbar". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Navbar (/home/pratham/Videos/Animephile/.next/server/chunks/895.js:55:51)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] TypeError: Cannot read properties of undefined (reading 'images')
+    at AiringCard (/home/pratham/Videos/Animephile/.next/server/chunks/656.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/AiringCard". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'images')
+    at AiringCard (/home/pratham/Videos/Animephile/.next/server/chunks/656.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] info  - Generating static pages (9/13)
+
+[info] {}
+
+[info] ReferenceError: database is not defined
+    at Home (/home/pratham/Videos/Animephile/.next/server/pages/index.js:53:16)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: database is not defined
+    at Home (/home/pratham/Videos/Animephile/.next/server/pages/index.js:53:16)
+    at Wc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] info  - Generating static pages (13/13)
+
+[info] 
+> Build error occurred
+
+[info] Error: Export encountered errors on following paths:
+	/
+	/components/AiringCard
+	/components/Navbar
+	/components/Newscard
+	/components/Recentcard
+    at /home/pratham/Videos/Animephile/node_modules/next/dist/export/index.js:425:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Span.traceAsyncFn (/home/pratham/Videos/Animephile/node_modules/next/dist/trace/trace.js:79:20)
+    at async /home/pratham/Videos/Animephile/node_modules/next/dist/build/index.js:1403:21
+    at async Span.traceAsyncFn (/home/pratham/Videos/Animephile/node_modules/next/dist/trace/trace.js:79:20)
+    at async /home/pratham/Videos/Animephile/node_modules/next/dist/build/index.js:1261:17
+    at async Span.traceAsyncFn (/home/pratham/Videos/Animephile/node_modules/next/dist/trace/trace.js:79:20)
+    at async Object.build [as default] (/home/pratham/Videos/Animephile/node_modules/next/dist/build/index.js:72:29)
+
+[debug] [2023-08-21T16:47:20.835Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-08-21T18:01:41.504Z] ----------------------------------------------------------------------
+[debug] [2023-08-21T18:01:41.507Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-08-21T18:01:41.507Z] CLI Version:   12.4.6
+[debug] [2023-08-21T18:01:41.508Z] Platform:      linux
+[debug] [2023-08-21T18:01:41.508Z] Node Version:  v18.15.0
+[debug] [2023-08-21T18:01:41.578Z] Time:          Mon Aug 21 2023 23:31:41 GMT+0530 (India Standard Time)
+[debug] [2023-08-21T18:01:41.578Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-21T18:01:41.774Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-21T18:01:41.774Z] > authorizing via signed-in user (pratham111ingole@gmail.com)
+[debug] [2023-08-21T18:01:41.775Z] [iam] checking project animephile-a28c7 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2023-08-21T18:01:41.777Z] > refreshing access token with scopes: []
+[debug] [2023-08-21T18:01:41.779Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-08-21T18:01:41.780Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-21T18:01:42.893Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-08-21T18:01:42.894Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-21T18:01:42.949Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions [none]
+[debug] [2023-08-21T18:01:42.949Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions x-goog-quota-user=projects/animephile-a28c7
+[debug] [2023-08-21T18:01:42.950Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T18:01:44.994Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions 200
+[debug] [2023-08-21T18:01:44.994Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/animephile-a28c7:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2023-08-21T18:01:44.996Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T18:01:45.571Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T18:01:45.571Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T18:01:45.572Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 [none]
+[debug] [2023-08-21T18:01:46.239Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 200
+[debug] [2023-08-21T18:01:46.239Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7 {"projectId":"animephile-a28c7","projectNumber":"269230750335","displayName":"Animephile","name":"projects/animephile-a28c7","resources":{"hostingSite":"animephile-a28c7","realtimeDatabaseInstance":"animephile-a28c7-default-rtdb"},"state":"ACTIVE","etag":"1_7124e8e6-bc14-4fbb-8a7b-f03c04a6dc96"}
+[debug] [2023-08-21T18:01:51.606Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites pageToken=&pageSize=10
+[debug] [2023-08-21T18:01:53.153Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T18:01:53.153Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T18:01:53.154Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 
+[debug] [2023-08-21T18:01:54.662Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites 200
+[debug] [2023-08-21T18:01:54.663Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/animephile-a28c7/sites {"sites":[{"name":"projects/animephile-a28c7/sites/animephile-a28c7","defaultUrl":"https://animephile-a28c7.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2023-08-21T18:01:54.663Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config [none]
+[debug] [2023-08-21T18:01:55.969Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config 200
+[debug] [2023-08-21T18:01:55.970Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/animephile-a28c7/webApps/-/config {"projectId":"animephile-a28c7","appId":"1:269230750335:web:bd8b2a840d3d4305535d4a","databaseURL":"https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"animephile-a28c7.appspot.com","apiKey":"AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E","authDomain":"animephile-a28c7.firebaseapp.com","messagingSenderId":"269230750335"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info] warn  - Invalid next.config.js options detected: 
+
+[info] warn  -     The value at .images has an unexpected property, hostname, which is not in the list of allowed properties (remotePatterns, unoptimized, contentSecurityPolicy, contentDispositionType, dangerouslyAllowSVG, deviceSizes, disableStaticImages, domains, formats, imageSizes, loader, loaderFile, minimumCacheTTL, path).
+warn  - See more info here: https://nextjs.org/docs/messages/invalid-next-config
+
+[info] info  - Linting and checking validity of types...
+
+[info] info  - Creating an optimized production build...
+
+[info] info  - Compiled successfully
+
+[info] info  - Collecting page data...
+
+[info] info  - Generating static pages (0/13)
+
+[info] TypeError: Cannot read properties of undefined (reading 'split')
+    at Navbar (/home/pratham/Videos/Animephile-main/.next/server/chunks/895.js:55:51)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/Navbar". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Navbar (/home/pratham/Videos/Animephile-main/.next/server/chunks/895.js:55:51)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] TypeError: Cannot read properties of undefined (reading 'images')
+    at AiringCard (/home/pratham/Videos/Animephile-main/.next/server/chunks/656.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/AiringCard". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'images')
+    at AiringCard (/home/pratham/Videos/Animephile-main/.next/server/chunks/656.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+TypeError: Cannot read properties of undefined (reading 'images')
+    at Newscard (/home/pratham/Videos/Animephile-main/.next/server/chunks/311.js:20:28)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+Error occurred prerendering page "/components/Newscard". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'images')
+    at Newscard (/home/pratham/Videos/Animephile-main/.next/server/chunks/311.js:20:28)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] info  - Generating static pages (3/13)
+
+[info] TypeError: Cannot read properties of undefined (reading 'images')
+    at Recentcard (/home/pratham/Videos/Animephile-main/.next/server/chunks/950.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] 
+Error occurred prerendering page "/components/Recentcard". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'images')
+    at Recentcard (/home/pratham/Videos/Animephile-main/.next/server/chunks/950.js:24:28)
+    at Wc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:68:44)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:253)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:70:481)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:89)
+    at $c (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:78:98)
+    at bd (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:77:404)
+    at Z (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:76:217)
+    at Zc (/home/pratham/Videos/Animephile-main/node_modules/react-dom/cjs/react-dom-server.browser.production.min.js:71:479)
+
+[info] info  - Generating static pages (6/13)
+
+[info] info  - Generating static pages (9/13)
+
+[info] {}
+
+[info] set in auth.. htieshjain
+
+[info] user out
+
+[info] info  - Generating static pages (13/13)
+
+[info] 
+
+[info] > Build error occurred
+
+[info] Error: Export encountered errors on following paths:
+	/components/AiringCard
+	/components/Navbar
+	/components/Newscard
+	/components/Recentcard
+    at /home/pratham/Videos/Animephile-main/node_modules/next/dist/export/index.js:425:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Span.traceAsyncFn (/home/pratham/Videos/Animephile-main/node_modules/next/dist/trace/trace.js:79:20)
+    at async /home/pratham/Videos/Animephile-main/node_modules/next/dist/build/index.js:1403:21
+    at async Span.traceAsyncFn (/home/pratham/Videos/Animephile-main/node_modules/next/dist/trace/trace.js:79:20)
+    at async /home/pratham/Videos/Animephile-main/node_modules/next/dist/build/index.js:1261:17
+    at async Span.traceAsyncFn (/home/pratham/Videos/Animephile-main/node_modules/next/dist/trace/trace.js:79:20)
+    at async Object.build [as default] (/home/pratham/Videos/Animephile-main/node_modules/next/dist/build/index.js:72:29)
+
+[debug] [2023-08-21T18:02:55.241Z] Error: ENOENT: no such file or directory, open '/home/pratham/Videos/Animephile-main/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

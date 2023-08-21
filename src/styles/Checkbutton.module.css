@@ -1,0 +1,27 @@
+.container{
+    background-color: #1a0317;
+    padding-left: 30px;
+}
+
+.logoutbtn{
+  border: 0;
+  background: #88d317;
+  color: #1a0317;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.logoutbtn:hover{
+  color: #262626;
+  background: lighten(#88d317, 13%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .25),
+  0 10px 10px rgba(0, 0, 0, .22);
+
+}
+.logoutbtn:focus{
+  background-color: #262626;
+  color:white;
+}

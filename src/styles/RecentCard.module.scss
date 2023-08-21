@@ -1,0 +1,149 @@
+// Functions
+@function remy($value, $base: 16px) {
+    @return ($value / $base) * 1rem;
+  }
+  
+  // Mixins
+  @mixin transition($prop: all, $duration: .2s, $timing: cubic-bezier(.4, 0, 1, 1)) {
+    transition: $prop $duration $timing;
+  }
+  
+  // Colors
+  $color-black: #212121;
+  $color-primary: #88d317;// red
+  
+  // Variables
+  $boxshadow-0: 0 1px 3px rgba(0, 0, 0, .13),
+  0 1px 3px rgba(0, 0, 0, .23);
+  $boxshadow-1: 0 3px 6px rgba(0, 0, 0, .16),
+  0 3px 6px rgba(0, 0, 0, .23);
+  $boxshadow-2: 0 10px 20px rgba(0, 0, 0, .19),
+  0 6px 6px rgba(0, 0, 0, .23);
+  $boxshadow-3: 0 14px 28px rgba(0, 0, 0, .25),
+  0 10px 10px rgba(0, 0, 0, .22);
+  $radius: remy(4px);
+  
+  .card {
+
+    margin-right: auto;
+    margin-left: auto;
+    overflow: scroll;
+    width: remy(550px);
+    height: remy(280px);
+    background: rgb(10,10,10);
+    border-radius: $radius;
+    box-shadow: $boxshadow-2;
+    display: flex;
+    overflow-y: hidden;
+    
+  }
+
+  .card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card__inner {
+    height: 100%;
+    width: 40%;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .card__body {
+    height: 100%;
+    width: 60%;
+    color: #ece5ec;
+    padding: 10px 30px 10px 30px;
+    background-color: #6c3667;
+  }
+  
+  
+  .card__title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .filter{
+    // background: linear-gradient(90deg,rgba(255, 255, 255, 0),#6c3667a1,#6c3667);
+    background-color: #26262686;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .card__slug {
+    margin-bottom: 1.25rem;
+    color: rgba(255,255,255,.95);
+  }
+  
+  .card__btn {
+    display: inline-block;
+    padding: .65rem 1.5rem;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: remy(1px);
+    text-transform: uppercase;
+    color: #262626;
+    background: $color-primary;
+    border: 0;
+    border-radius: remy(35px);
+    box-shadow: $boxshadow-2;
+    @include transition;
+    
+    &:focus,
+    &:hover {
+      color: #262626;
+      background: lighten($color-primary, 13%);
+      box-shadow: $boxshadow-3;
+    }
+  }
+
+
+  .card__btn2 {
+    display: inline-block;
+    padding: .65rem 1.5rem;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: remy(1px);
+    text-transform: uppercase;
+    color: #262626;
+    background: $color-primary;
+    border: 0;
+    border-radius: remy(35px);
+    box-shadow: $boxshadow-2;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    @include transition;
+    
+    &:focus,
+    &:hover {
+      color: #262626;
+      background: lighten($color-primary, 13%);
+      box-shadow: $boxshadow-3;
+    }
+
+    &:focus{
+      background-color: #262626;
+      color:white;
+    }
+
+    
+  }
+  
+  .card__rating {
+    padding: .65rem 1.5rem;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: remy(1px);
+    text-transform: uppercase;
+    color: #fff;
+    margin: 10px auto auto auto;
+    border-radius: remy(35px);
+    border: 3px solid $color-primary;
+
+  }
+  
