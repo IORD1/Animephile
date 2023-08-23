@@ -7,6 +7,11 @@ export default function Navbar (props){
     function logoutme(){
         props.logout();
     }
+
+    let name = "User";
+    if(props.item){
+        name = props.displayname.split(" ")[0];
+    }
     // const router = useRouter()
     // function handleClick(){
     //     const data = {
@@ -29,7 +34,7 @@ export default function Navbar (props){
                 <Applogo />
                 <div className={styles.nav2}>
                     {/* <Search /> */}
-                    <p className={styles.hiuser} >Welcome, {props.displayname.split(" ")[0]}</p>
+                    <p className={styles.hiuser} >Welcome, {name}</p>
                     <button className={styles.logoutbtn} onClick={logoutme}>LogOut</button>
                     {/* <button className={styles.logoutbtn} onClick={handleClick}>Following</button> */}
                     

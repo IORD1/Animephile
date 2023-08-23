@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-  }, 
+  },
   "dependencies": {
     "@mateoaranda/jikanjs": "^1.2.4",
     "emailjs": "^4.0.2",
@@ -15,7 +15,7 @@
     "eslint-config-next": "13.2.3",
     "firebase": "^9.19.1",
     "fs": "^0.0.1-security",
-    "next": "13.2.3",
+    "next": "^13.4.20-canary.2",
     "nodemailer": "^6.9.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -13,10 +13,14 @@ export default function Recent(props){
 
     const [state, setState] =  useState([])
     const getTopAnime = async () => {
-        const response = await fetch(`https://api.jikan.moe/v4/top/anime`).then(
-            (res) => res.json()
-          );
-        setState(response.data);
+        try{
+            const response = await fetch(`https://api.jikan.moe/v4/top/anime`).then(
+                (res) => res.json()
+            );
+            setState(response.data);
+        }catch(err){
+            console.log(err);
+        }
     }
 
 

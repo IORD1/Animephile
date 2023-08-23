@@ -20,15 +20,19 @@ export default function Check(props){
   let dayslist = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
 
   const getShedule = async () => {
-    const response = await fetch(`https://api.jikan.moe/v4/schedules/${dayslist[day]}`).then(
-            (res) => res.json()
-          );
+   try{
+      const response = await fetch(`https://api.jikan.moe/v4/schedules/${dayslist[day]}`).then(
+        (res) => res.json()
+      );
         setSchedule(response.data);
         console.log(response.data)
-    for(let i in response.data){
-      titlearray.push(response.data[i].title);
-    }
-    sendRequest(titlearray);
+        for(let i in response.data){
+           titlearray.push(response.data[i].title);
+        }
+        sendRequest(titlearray);
+   }catch(err){
+    console.log(err)
+   }
   }
 
   function func1(){

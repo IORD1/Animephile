@@ -11,10 +11,14 @@ export default  function News(){
 
     const [stateNews, setStateNews] =  useState([])
     const getManga = async () => {
-        const resp = await fetch(`https://api.jikan.moe/v4/manga`).then(
-            (res) => res.json()
-          );
-        setStateNews(resp.data);
+        try{
+            const resp = await fetch(`https://api.jikan.moe/v4/manga`).then(
+                (res) => res.json()
+              );
+            setStateNews(resp.data);
+        }catch(err){
+            console.log(err);
+        }
         // console.log(resp.data);
     }
     const cards = stateNews?.map(item => {
