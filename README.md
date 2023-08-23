@@ -1,10 +1,16 @@
-# Animephile - a anime episode tracker and reminder
+![262585434-044c8345-161a-443f-ab0e-9b55eaad456a-removebg-preview](https://github.com/IORD1/Animephile/assets/91962775/cdaa608d-4350-4824-8e27-77f2e508fd2b)
+
+
+# Animephile -A Anime episode tracker and reminder
 ### technologies : NextJS, Firebase, JikanAPI
 ### working : After user is logged in the applications, he can subscribe to different titles. Aftrer subscriving , user receives a email update every time a new episode is released for that anime title.
+### Try it here : https://animephile.vercel.app/
 <br />
 
+![992shots_so](https://github.com/IORD1/Animephile/assets/91962775/4ec4ddcb-3950-4e50-86c2-aafc0d3e17bb)
 
-![image](https://github.com/IORD1/Animephile/assets/91962775/38143f34-74d0-40b0-aa8f-99664d57bd1b)
+
+![949shots_so](https://github.com/IORD1/Animephile/assets/91962775/2596673f-4920-4f33-83a5-99004c329902)
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
