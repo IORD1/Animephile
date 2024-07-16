@@ -36,7 +36,7 @@ export default function Home() {
   var name = {};
   console.log(name);
   // const auth = DB.auth;
-  // const db = DB.db;
+   const db = DB.db;
   // const dbRef = DB.dbRef
   // ---------------AUTHENTICATION--------------
   function logmein(){
@@ -101,14 +101,14 @@ export default function Home() {
   // -------DATABASED FUNCTIONS ----------------------
 
   function appendData(email, title){
-    const postListRef = ref(db, 'users/' + title);
+    const postListRef = ref(DB, 'users/' + title);
     const newPostRef = push(postListRef);
     set(newPostRef, {
         "email" : email
     });
   }
   function appendDataEmail(email, title){
-    const postListRef = ref(db, 'uid/' + uid);
+    const postListRef = ref(DB, 'uid/' + uid);
     const newPostRef = push(postListRef);
     set(newPostRef, {
         "title" : title
