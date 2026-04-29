@@ -10,6 +10,9 @@
     "db:setup": "node --env-file=.env.local scripts/db-setup.mjs",
     "db:seed": "node --env-file=.env.local scripts/jikan-seed.mjs"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "firebase": "^9.23.0",
     "mongodb": "^6.3.0",
