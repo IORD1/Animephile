@@ -15,14 +15,14 @@ export default function SectionHeader({ idx, title, jp, kicker, action, actionHr
         {idx && (
           <div
             className="display"
-            style={{ fontSize: 64, color: 'var(--vermilion)', lineHeight: 0.8 }}
+            style={{ fontSize: 'clamp(36px, 8vw, 64px)', color: 'var(--vermilion)', lineHeight: 0.8 }}
           >
             {idx}
           </div>
         )}
         <div>
           {kicker && <div className="idx" style={{ marginBottom: 6 }}>— {kicker}</div>}
-          <div className="display" style={{ fontSize: 38, lineHeight: 0.9 }}>
+          <div className="display" style={{ fontSize: 'clamp(24px, 5.5vw, 38px)', lineHeight: 0.9 }}>
             {title}
             {jp && (
               <span

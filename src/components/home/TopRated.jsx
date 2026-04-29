@@ -25,7 +25,7 @@ export default function TopRated({
   const followedFeatured = isFollowing(featured.mal_id);
 
   return (
-    <div style={{ padding: '40px 28px', borderBottom: '2.5px solid var(--ink)' }}>
+    <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)' }}>
       <SectionHeader
         idx={idx}
         kicker={kicker}
@@ -35,10 +35,10 @@ export default function TopRated({
         actionHref={actionHref}
       />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 28 }}>
+      <div className="grid-2-stack-sm" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 28 }}>
         <Link
           href={`/anime/${featured.mal_id}`}
-          className="shadow-hard"
+          className="shadow-hard top-rated-feat-sm"
           style={{
             background: 'var(--paper-2)',
             border: '1.5px solid var(--ink)',
@@ -49,7 +49,7 @@ export default function TopRated({
             textDecoration: 'none',
           }}
         >
-          <div style={{ width: 200, height: 280, flexShrink: 0 }}>
+          <div className="top-rated-feat-poster" style={{ width: 200, height: 280, flexShrink: 0 }}>
             <PosterPlaceholder
               title={(featured.title_english || featured.title || '').split(':')[0]}
               jp={(featured.title_japanese || '').slice(0, 1)}
@@ -63,13 +63,13 @@ export default function TopRated({
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
               <div
                 className="display"
-                style={{ fontSize: 96, color: 'var(--vermilion)', lineHeight: 0.8 }}
+                style={{ fontSize: 'clamp(56px, 14vw, 96px)', color: 'var(--vermilion)', lineHeight: 0.8 }}
               >
                 01
               </div>
               <div className="idx">RANK · BY USER SCORE</div>
             </div>
-            <div className="display" style={{ fontSize: 30, marginTop: 14, lineHeight: 0.95 }}>
+            <div className="display" style={{ fontSize: 'clamp(22px, 5vw, 30px)', marginTop: 14, lineHeight: 0.95 }}>
               {featured.title_english || featured.title}
             </div>
             {featured.title_japanese && (
@@ -134,7 +134,7 @@ export default function TopRated({
                   textDecoration: 'none',
                 }}
               >
-                <div className="display" style={{ fontSize: 36, color: 'var(--vermilion)', minWidth: 56 }}>
+                <div className="display" style={{ fontSize: 'clamp(26px, 6vw, 36px)', color: 'var(--vermilion)', minWidth: 'clamp(36px, 8vw, 56px)' }}>
                   {rank}
                 </div>
                 <div style={{ width: 50, height: 70, flexShrink: 0 }}>

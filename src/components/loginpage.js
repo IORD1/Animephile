@@ -73,9 +73,11 @@ export default function Login({ loginfunc }) {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '24px 40px',
+          padding: 'clamp(16px, 4vw, 24px) clamp(16px, 4vw, 40px)',
           position: 'relative',
           zIndex: 2,
+          gap: 12,
+          flexWrap: 'wrap',
         }}
       >
         <Logo />
@@ -85,20 +87,21 @@ export default function Login({ loginfunc }) {
       </div>
 
       <div
+        className="login-grid-sm"
         style={{
           display: 'grid',
           gridTemplateColumns: '1.1fr 1fr',
           gap: 0,
-          padding: '20px 40px 60px',
+          padding: 'clamp(16px, 4vw, 20px) clamp(16px, 4vw, 40px) clamp(80px, 10vw, 60px)',
           position: 'relative',
           zIndex: 2,
           minHeight: 'calc(100vh - 160px)',
         }}
       >
-        <div style={{ paddingRight: 60, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ paddingRight: 'clamp(0px, 4vw, 60px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div className="idx" style={{ marginBottom: 16 }}>— CHAPTER 01 · WELCOME BACK</div>
 
-          <h1 className="display" style={{ fontSize: 130, lineHeight: 0.85, marginBottom: 10 }}>
+          <h1 className="display" style={{ fontSize: 'clamp(48px, 14vw, 130px)', lineHeight: 0.85, marginBottom: 10 }}>
             NEVER<br />MISS AN<br />
             <span style={{ color: 'var(--vermilion)', position: 'relative' }}>
               EPISODE
@@ -112,10 +115,10 @@ export default function Login({ loginfunc }) {
                 <path d="M0,5 Q100,1 200,5 T400,5" stroke="var(--ink)" strokeWidth="3" fill="none" />
               </svg>
             </span>
-            <span className="jp" style={{ fontSize: 60, marginLeft: 14, color: 'var(--ink)' }}>。</span>
+            <span className="jp" style={{ fontSize: 'clamp(28px, 7vw, 60px)', marginLeft: 14, color: 'var(--ink)' }}>。</span>
           </h1>
 
-          <p style={{ fontSize: 18, lineHeight: 1.5, marginTop: 28, maxWidth: 460, color: 'var(--ink-2)' }}>
+          <p style={{ fontSize: 'clamp(15px, 2.5vw, 18px)', lineHeight: 1.5, marginTop: 28, maxWidth: 460, color: 'var(--ink-2)' }}>
             Subscribe to the anime you love. The second a new episode airs, we&apos;ll fire off an email — no
             scrolling, no spoilers, no FOMO.
           </p>
@@ -134,14 +137,14 @@ export default function Login({ loginfunc }) {
             </button>
           </div>
 
-          <div className="idx" style={{ marginTop: 28, display: 'flex', gap: 18 }}>
+          <div className="idx" style={{ marginTop: 28, display: 'flex', gap: 18, flexWrap: 'wrap' }}>
             <span>✓ FREE FOREVER</span>
             <span>✓ NO SPAM</span>
             <span>✓ UNSUBSCRIBE ANYTIME</span>
           </div>
         </div>
 
-        <div style={{ position: 'relative', minHeight: 500 }}>
+        <div className="login-showcase-sm" style={{ position: 'relative', minHeight: 500 }}>
           <div
             className="shadow-hard rotate-2"
             style={{ position: 'absolute', top: 20, right: 20, width: 280, height: 380 }}
@@ -252,11 +255,11 @@ export default function Login({ loginfunc }) {
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}>
         <div className="scan-rule" />
         <div
-          className="mono"
+          className="mono login-foot-sm"
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '10px 40px',
+            padding: '10px clamp(16px, 4vw, 40px)',
             fontSize: 11,
           }}
         >

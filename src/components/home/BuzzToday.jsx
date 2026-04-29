@@ -33,10 +33,10 @@ export default function BuzzToday({ items }) {
   const top4 = items.slice(0, 4);
 
   return (
-    <div style={{ padding: '40px 28px', borderBottom: '2.5px solid var(--ink)' }}>
+    <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)' }}>
       <SectionHeader idx="04" kicker="WORD ON THE STREET" title="BUZZ TODAY" jp="話題" />
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+      <div className="buzz-grid-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
         {top4.map((item, i) => {
           const cover = getPosterUrl(item);
           const synopsis = snippet(item.synopsis);

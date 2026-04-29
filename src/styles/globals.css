@@ -208,3 +208,67 @@ button { font-family: inherit; }
 .rotate-2 { transform: rotate(1.5deg); }
 .shadow-hard { box-shadow: 6px 6px 0 var(--ink); }
 .shadow-hard-sm { box-shadow: 4px 4px 0 var(--ink); }
+
+/* === Mobile (≤720px) === */
+@media (max-width: 720px) {
+  .grid-stack-sm { grid-template-columns: 1fr !important; }
+  .grid-2-stack-sm { grid-template-columns: 1fr !important; }
+  .hero-cards-sm { grid-template-columns: 1fr !important; }
+  .buzz-grid-sm { grid-template-columns: repeat(2, 1fr) !important; }
+  .characters-grid-sm { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Top page leaderboard row: hide poster + status, simpler layout */
+  .top-row-sm {
+    grid-template-columns: 56px 1fr auto !important;
+    gap: 12px !important;
+    padding: 12px 14px !important;
+  }
+  .top-row-sm .top-row-status,
+  .top-row-sm .top-row-poster { display: none !important; }
+  .top-row-sm .top-row-score-cell { display: none !important; }
+  .top-row-sm .top-row-rank { font-size: 28px !important; }
+
+  /* Search page */
+  .search-layout-sm { grid-template-columns: 1fr !important; }
+  .search-row-sm {
+    grid-template-columns: 80px 1fr !important;
+    gap: 12px !important;
+    padding: 12px !important;
+  }
+  .search-row-sm .search-row-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start !important;
+  }
+
+  /* Profile subscriptions table → cards */
+  .subs-header-sm { display: none !important; }
+  .subs-row-sm {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 14px !important;
+  }
+  .subs-row-sm > * { text-align: left !important; }
+
+  /* Anime detail */
+  .detail-main-sm { grid-template-columns: 1fr !important; }
+  .detail-poster-sm { width: 100% !important; max-width: 280px; margin: 0 auto; }
+  .detail-stats-sm { grid-template-columns: repeat(2, 1fr) !important; }
+  .detail-episodes-sm { grid-template-columns: 1fr !important; }
+  .detail-side-sm { width: 100% !important; }
+
+  /* TopNav: hide secondary chrome on phones */
+  .topnav-row-sm { gap: 12px !important; padding: 12px 16px !important; flex-wrap: wrap !important; }
+  .topnav-divider-sm { display: none !important; }
+  .topnav-search-sm { display: none !important; }
+  .topnav-name-sm { display: none !important; }
+
+  /* TopRated featured card stacks vertically */
+  .top-rated-feat-sm { flex-direction: column !important; }
+  .top-rated-feat-sm > .top-rated-feat-poster { width: 100% !important; height: auto !important; aspect-ratio: 5 / 7; }
+
+  /* Login showcase column hidden on phones */
+  .login-showcase-sm { display: none !important; }
+  .login-grid-sm { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .login-foot-sm { flex-wrap: wrap !important; gap: 6px !important; padding: 10px 16px !important; }
+  .login-foot-sm > * { font-size: 9px !important; }
+}

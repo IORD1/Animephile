@@ -72,16 +72,16 @@ export default function TopPage() {
     <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
-      <div style={{ padding: '40px 28px', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
+      <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.08 }} />
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 18, flexWrap: 'wrap' }}>
           <div>
             <div className="idx" style={{ marginBottom: 8 }}>
               — RANKED BY USER SCORE · LIVE FROM YOUR INDEX
             </div>
-            <h1 className="display" style={{ fontSize: 76, lineHeight: 0.85, margin: 0 }}>
+            <h1 className="display" style={{ fontSize: 'clamp(36px, 9vw, 76px)', lineHeight: 0.85, margin: 0 }}>
               TOP RATED <span style={{ color: 'var(--vermilion)' }}>{total}</span>
-              <span className="jp" style={{ fontSize: 50, marginLeft: 8 }}>。</span>
+              <span className="jp" style={{ fontSize: 'clamp(28px, 6vw, 50px)', marginLeft: 8 }}>。</span>
             </h1>
           </div>
           <div className="bubble shadow-hard-sm" style={{ maxWidth: 280 }}>
@@ -91,7 +91,7 @@ export default function TopPage() {
         </div>
       </div>
 
-      <div style={{ padding: '40px 28px' }}>
+      <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)' }}>
         <SectionHeader idx="01" kicker="THE LEADERBOARD" title="EVERYTHING WE'VE GOT" jp="ランキング" />
 
         {error && <p className="idx" style={{ color: 'var(--vermilion)', marginBottom: 18 }}>{error}</p>}
@@ -114,6 +114,7 @@ export default function TopPage() {
                 <Link
                   key={r.malId}
                   href={`/anime/${r.malId}`}
+                  className="top-row-sm"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '80px 100px 2.5fr 1fr auto auto',
@@ -127,7 +128,7 @@ export default function TopPage() {
                   }}
                 >
                   <div
-                    className="display"
+                    className="display top-row-rank"
                     style={{
                       fontSize: 44,
                       color: rank <= 3 ? 'var(--vermilion)' : 'var(--ink)',
@@ -136,7 +137,7 @@ export default function TopPage() {
                   >
                     {formatRank(rank)}
                   </div>
-                  <div style={{ width: 80, height: 110 }}>
+                  <div className="top-row-poster" style={{ width: 80, height: 110 }}>
                     <PosterPlaceholder
                       title={(r.titleEnglish || r.title || '').split(/[:×]/)[0].trim().slice(0, 12)}
                       jp={(r.titleJapanese || '').slice(0, 1)}
@@ -159,7 +160,7 @@ export default function TopPage() {
                       {(r.genres || []).slice(0, 3).map((g) => g.toUpperCase()).join(' · ') || '—'}
                     </div>
                   </div>
-                  <div>
+                  <div className="top-row-status">
                     <div className="mono" style={{ fontSize: 11, fontWeight: 700 }}>
                       {(r.status || 'UNKNOWN').toUpperCase()}
                     </div>
@@ -167,7 +168,7 @@ export default function TopPage() {
                       {r.episodes ? `${r.episodes} EPS` : '— EPS'}
                     </div>
                   </div>
-                  <div style={{ textAlign: 'right' }}>
+                  <div className="top-row-score-cell" style={{ textAlign: 'right' }}>
                     <div className="display" style={{ fontSize: 30, color: 'var(--vermilion)' }}>
                       {r.score?.toFixed(2) ?? '—'}
                     </div>

@@ -225,7 +225,7 @@ export default function AnimeDetailPage() {
     <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
-      <div style={{ padding: '14px 28px', borderBottom: '1.5px solid var(--ink)', background: 'var(--paper-2)' }}>
+      <div style={{ padding: '14px clamp(16px, 4vw, 28px)', borderBottom: '1.5px solid var(--ink)', background: 'var(--paper-2)' }}>
         <div className="idx">
           <Link href="/" style={{ color: 'var(--muted)' }}>DISCOVER</Link>
           {genres[0] && (
@@ -241,7 +241,7 @@ export default function AnimeDetailPage() {
 
       <div
         style={{
-          padding: '40px 28px',
+          padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)',
           borderBottom: '2.5px solid var(--ink)',
           position: 'relative',
           overflow: 'hidden',
@@ -249,14 +249,15 @@ export default function AnimeDetailPage() {
       >
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.1 }} />
         <div
+          className="detail-main-sm"
           style={{
             display: 'grid',
             gridTemplateColumns: '320px 1fr 280px',
-            gap: 36,
+            gap: 'clamp(20px, 4vw, 36px)',
             position: 'relative',
           }}
         >
-          <div>
+          <div className="detail-poster-sm">
             <div className="shadow-hard rotate-n2">
               <PosterPlaceholder
                 title={titleEn?.split(':')[0]}
@@ -309,12 +310,12 @@ export default function AnimeDetailPage() {
             <div className="idx" style={{ marginBottom: 8 }}>
               — {[...genres.slice(0, 4)].map((g) => g.toUpperCase()).join(' · ') || 'GENRES UNKNOWN'}
             </div>
-            <h1 className="display" style={{ fontSize: 88, lineHeight: 0.85, margin: 0 }}>
+            <h1 className="display" style={{ fontSize: 'clamp(36px, 10vw, 88px)', lineHeight: 0.85, margin: 0, wordBreak: 'break-word' }}>
               {titleEn}
               <span style={{ color: 'var(--vermilion)' }}>.</span>
             </h1>
             {anime.titleJapanese && (
-              <div className="jp" style={{ fontSize: 28, color: 'var(--muted)', marginTop: 8 }}>
+              <div className="jp" style={{ fontSize: 'clamp(18px, 4vw, 28px)', color: 'var(--muted)', marginTop: 8 }}>
                 {anime.titleJapanese}
               </div>
             )}
@@ -341,9 +342,10 @@ export default function AnimeDetailPage() {
             )}
 
             <div
+              className="detail-stats-sm"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(4, auto)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: 0,
                 marginTop: 28,
                 border: '1.5px solid var(--ink)',
@@ -356,15 +358,16 @@ export default function AnimeDetailPage() {
                 <div
                   key={m.l}
                   style={{
-                    padding: '14px 22px',
+                    padding: 'clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 22px)',
                     borderRight: i < stats.length - 1 ? '1.5px solid var(--ink)' : 'none',
+                    minWidth: 0,
                   }}
                 >
                   <div className="idx" style={{ marginBottom: 4 }}>{m.l}</div>
                   <div
                     className="display"
                     style={{
-                      fontSize: 28,
+                      fontSize: 'clamp(20px, 4vw, 28px)',
                       color: m.accent ? 'var(--vermilion)' : 'var(--ink)',
                     }}
                   >
@@ -381,7 +384,7 @@ export default function AnimeDetailPage() {
           </div>
 
           <div
-            className="shadow-hard"
+            className="shadow-hard detail-side-sm"
             style={{
               background: 'var(--ink)',
               color: 'var(--paper)',
@@ -452,10 +455,10 @@ export default function AnimeDetailPage() {
       </div>
 
       {(recentAired.length > 0 || upcomingEpisodeNumber != null) && (
-        <div style={{ padding: '40px 28px', borderBottom: '2.5px solid var(--ink)' }}>
+        <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)' }}>
           <SectionHeader idx="01" kicker="THE EPISODE LOG" title="EPISODES" jp="エピソード" />
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14 }}>
+          <div className="detail-episodes-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14 }}>
             {upcomingEpisodeNumber != null && nextDate && (
               <div
                 style={{
@@ -549,9 +552,9 @@ export default function AnimeDetailPage() {
       )}
 
       {mainCharacters.length > 0 && (
-        <div style={{ padding: '40px 28px' }}>
+        <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)' }}>
           <SectionHeader idx="02" kicker="WHO MADE THIS" title="CAST & STAFF" jp="制作" />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 14 }}>
+          <div className="characters-grid-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 14 }}>
             {mainCharacters.map((c, i) => {
               const charName = c.character?.name || '—';
               const charImg = c.character?.images?.webp?.image_url || c.character?.images?.jpg?.image_url;
