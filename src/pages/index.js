@@ -1,277 +1,114 @@
-import Navbar from './components/Navbar'
-import Recent from './components/Recent'
-import News from './components/News';
-import Check from './components/check';
-import Airingtoday from './components/Airingtoday';
-import { useState } from 'react'
-import Login from './components/loginpage'
-import { initializeApp } from 'firebase/app';
-import { GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged,getAuth } from "firebase/auth";
-import {ref, set, push, get,child,getDatabase } from "firebase/database";
+import { useEffect, useMemo, useState } from 'react';
+import TopNav from '@/components/ui/TopNav';
+import Hero from '@/components/home/Hero';
+import TopRated from '@/components/home/TopRated';
+import BuzzToday from '@/components/home/BuzzToday';
+import HomeFooter from '@/components/home/HomeFooter';
+import Login from '@/components/loginpage';
+import { useAuth } from '@/lib/AuthContext';
+import { useSubscriptions } from '@/lib/useSubscriptions';
 
 export default function Home() {
-  const [islogedin, setLog] = useState(1);
-  const [username, setname] = useState("User");
-  const [prourl, seturl] = useState("./assests/defaultprofile.webp");
-  const [propemail, setEmail] = useState("htieshjain");
-  const [uid, setUid] = useState()
-  const [timestamp, setTimestamp] = useState()
-  const [isimp, setisImp] = useState(false);
+  const { user, loading, login, logout } = useAuth();
+  const { follow } = useSubscriptions();
 
-  const firebaseConfig = {
-        apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
-        authDomain: "animephile-a28c7.firebaseapp.com",
-        databaseURL: "https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "animephile-a28c7",
-        storageBucket: "animephile-a28c7.appspot.com",
-        messagingSenderId: "269230750335",
-        appId: "1:269230750335:web:bd8b2a840d3d4305535d4a"
-    };
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const dbRef = ref(getDatabase());
-    const DB = getDatabase();
-  var a = true;
-  const provider = new GoogleAuthProvider();
-  var name = {};
-  console.log(name);
-  // const auth = DB.auth;
-   const db = DB.db;
-  // const dbRef = DB.dbRef
-  // ---------------AUTHENTICATION--------------
-  function logmein(){
-    console.log("logging you in");
-    signInWithPopup(auth, provider)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjainhd@gmail.com'){
-        setisImp(true);
-      }
-      name = user;
-      console.log("---------------------");
-      console.log(name);
-      setname(name.displayName);
-      seturl(name.photoURL);
-      console.log("---------------------");
+  const [today, setToday] = useState([]);
+  const [top, setTop] = useState([]);
+  const [airing, setAiring] = useState([]);
+  const [manga, setManga] = useState([]);
+  const [subs, setSubs] = useState([]);
+  const [followToast, setFollowToast] = useState(null);
 
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
-  }
+  useEffect(() => {
+    fetch('/api/browse/today').then((r) => r.json()).then((d) => setToday(d.data || [])).catch(() => {});
+    fetch('/api/browse/top').then((r) => r.json()).then((d) => setTop(d.data || [])).catch(() => {});
+    fetch('/api/browse/airing').then((r) => r.json()).then((d) => setAiring(d.data || [])).catch(() => {});
+    fetch('/api/browse/manga').then((r) => r.json()).then((d) => setManga(d.data || [])).catch(() => {});
+  }, []);
 
-  function logmeout(){
-    signOut(auth).then(() => {
-      console.log(name);
-      console.log("Logged Out");
-      console.log(auth.user);
-      setisImp(false)
-    }).catch((error) => {
-    });
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/subscriptions?firebaseUid=${encodeURIComponent(user.uid)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => setSubs(d?.subscriptions || []))
+      .catch(() => {});
+  }, [user]);
 
-  }
+  const subIds = useMemo(() => new Set(subs.map((s) => s.malId)), [subs]);
+  const isFollowing = (malId) => subIds.has(malId);
 
-  onAuthStateChanged(auth,user => {
+  const featured = useMemo(() => {
+    if (!today.length) return [];
+    const followed = today.filter((t) => subIds.has(t.mal_id));
+    const pool = followed.length >= 3 ? followed : today;
+    return pool.slice(0, 3);
+  }, [today, subIds]);
 
-    if (user) {
-      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjainhd@gmail.com'){
-        setisImp(true);
-      }
-        // signed in
-        console.log('user innn');
-        setname(auth.currentUser.displayName);
-        seturl(auth.currentUser.photoURL);
-        setEmail(auth.currentUser.email);
-        setUid(auth.currentUser.uid)
-        setLog(0);
+  const todayCount = useMemo(
+    () => today.filter((t) => subIds.has(t.mal_id)).length,
+    [today, subIds],
+  );
+
+  async function handleFollow(item) {
+    const res = await follow(item.mal_id, item.title, item);
+    if (res?.added) {
+      setSubs((prev) => [...prev, { malId: item.mal_id, animeTitle: item.title }]);
+      setFollowToast(`Following ${item.title}`);
+    } else if (res?.alreadySubscribed) {
+      setFollowToast(`Already following ${item.title}`);
     } else {
-        // not signed in
-        console.log('user out');
-        setLog(1);
-      }
-  });
-
-  console.log("set in auth..", propemail)
-  // -------DATABASED FUNCTIONS ----------------------
-
-  function appendData(email, title){
-    const postListRef = ref(DB, 'users/' + title);
-    const newPostRef = push(postListRef);
-    set(newPostRef, {
-        "email" : email
-    });
-  }
-  function appendDataEmail(email, title){
-    const postListRef = ref(DB, 'uid/' + uid);
-    const newPostRef = push(postListRef);
-    set(newPostRef, {
-        "title" : title
-    });
-  }
-
-  function searchData(email,title){
-    get(child(dbRef, 'users/'+title)).then((snapshot) => {
-      if (snapshot.exists()) {
-       
-        const data = snapshot.val();
-        for (const key in data){
-          if(data.hasOwnProperty(key)){
-            if(data[key].email === email){
-              return false;
-            }
-          }
-        }
-          // console.log("data email adding ");
-          appendData(auth.currentUser.email,title);
-          return true;
-      } else {
-        // console.log("No data available and adding new data ");
-        appendData(auth.currentUser.email,title);
-        return true;
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-    get(child(dbRef, 'uid/'+uid)).then((snapshot) => {
-      if (snapshot.exists()) {
-       
-        const data = snapshot.val();
-        for (const key in data){
-          if(data.hasOwnProperty(key)){
-            if(data[key].title === title){
-              return false;
-            }
-          }
-        }
-          // console.log("data email adding ");
-          appendDataEmail(auth.currentUser.email,title);
-          return true;
-      } else {
-        // console.log("No data available and adding new data ");
-        appendDataEmail(auth.currentUser.email,title);
-        return true;
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-  }
-
-  function savemyfollow(title){
-    if(searchData(auth.currentUser.email,title)){
-      console.log("data added")
-    }else{
-      console.log("email already present")
+      setFollowToast('Could not follow.');
     }
-  }
-  
-
-  const sendEmailToUser = async (recipientEmail, subject) => {
-    // event.preventDefault();
-
-    const response = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ recipientEmail, subject}),
-    });
-
-    if (response.ok) {
-      console.log('Email sent successfully');
-    } else {
-      console.error('Error sending email');
-    }
-  };
-
-
-function sendEmail(list,database){
-  console.log(database)
-  console.log(list);
-
-  for(let a in list){
-    for (const name in database){
-      if(name === list[a]){
-        for(const timestamp in database[name]){
-          for(const emails in database[name][timestamp]){
-            // console.log(database[name][timestamp].email);
-            console.log("Sending emails on : ",database[name][timestamp].email," for : ",name)  
-            var email = database[name][timestamp].email         
-            // Call the sendEmail function to send an email
-            sendEmailToUser(email, name);  
-          }
-        }
-        
-      }
-    }
-  }
-}
-
-let entireDb ;
-// ---------------CHECKING WHAT MATCHES WITH TODAY UPDATE--------------------
-  function sendUpdate(list){
-    let toSendUpdateList = [];
-    get(child(dbRef, 'users/')).then((snapshot) => {
-      if (snapshot.exists()) {
-       
-        const data = snapshot.val();
-        entireDb = data;
-        for (const key in data){
-          if(data.hasOwnProperty(key)){
-            for(let a in list){
-              if(list[a] === key){
-                toSendUpdateList.push(key);
-              }
-            }
-          }
-        }
-      }
-      sendEmail(toSendUpdateList,entireDb)
-    }).catch((error) => {
-      console.error(error);
-    });
+    setTimeout(() => setFollowToast(null), 2400);
   }
 
-// function getTimestamp()
+  if (loading) return null;
+  if (!user) return <Login loginfunc={login} />;
+
+  const firstName = (user.displayName || user.email || 'You').split(/[\s@]/)[0];
+
   return (
-    <>
-    {islogedin ?
-      <>
-        <Login loginfunc={logmein} />
-      </>
-     : 
-      <>
-        {
-          isimp ?
-          <>
-            <Navbar logout={logmeout} displayname={username} profileurl={prourl} email={propemail}/>
-            <Check sendUpdate={sendUpdate}/>
-            <Recent savemyfollow={savemyfollow} />
-            <Airingtoday savemyfollow={savemyfollow} />
-            <News/>
-          </>
-          :
-          <>
-            <Navbar logout={logmeout} displayname={username} profileurl={prourl} uid={uid}/>
-            <Recent savemyfollow={savemyfollow} />
-            <Airingtoday savemyfollow={savemyfollow} />
-            <News/>
-          </>        
-          }
-        
-      </>
-    }
-    </>
-  )
+    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+      <TopNav user={user} logout={logout} />
+      <Hero
+        firstName={firstName}
+        todayCount={todayCount}
+        subsCount={subs.length}
+        unreadCount={null}
+        featured={featured}
+        isFollowing={isFollowing}
+        onFollow={handleFollow}
+      />
+      <TopRated
+        items={airing}
+        isFollowing={isFollowing}
+        onFollow={handleFollow}
+        idx="02"
+        kicker="ON AIR · BY SCORE"
+        title="TOP AIRING"
+        jp="放送中"
+        action={null}
+        actionHref={null}
+      />
+      <TopRated items={top} isFollowing={isFollowing} onFollow={handleFollow} idx="03" />
+      <BuzzToday items={manga} />
+      <HomeFooter />
+
+      {followToast && (
+        <div
+          className="bubble shadow-hard-sm"
+          style={{
+            position: 'fixed',
+            bottom: 24,
+            right: 24,
+            background: 'var(--ink)',
+            color: 'var(--paper)',
+            zIndex: 50,
+          }}
+        >
+          {followToast}
+        </div>
+      )}
+    </div>
+  );
 }
-
-
-
-
-
-

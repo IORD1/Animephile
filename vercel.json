@@ -1,0 +1,13 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/notify",
+      "schedule": "0 9 * * *"
+    }
+  ],
+  "functions": {
+    "src/pages/api/cron/notify.js": {
+      "maxDuration": 60
+    }
+  }
+}
