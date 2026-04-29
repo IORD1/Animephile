@@ -116,15 +116,15 @@ export default function SearchPage() {
     <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} searchEnabled />
 
-      <div style={{ padding: '40px 28px', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
+      <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.08 }} />
         <div style={{ position: 'relative' }}>
           <div className="idx" style={{ marginBottom: 8 }}>
             {loadingResults ? '— SEARCHING…' : `— SHOWING ${results.length} OF ${total} RESULTS · ${(took / 1000).toFixed(2)}S`}
           </div>
-          <h1 className="display" style={{ fontSize: 76, lineHeight: 0.85, marginBottom: 20 }}>
+          <h1 className="display" style={{ fontSize: 'clamp(36px, 9vw, 76px)', lineHeight: 0.85, marginBottom: 20 }}>
             {q ? <>&quot;{q.toUpperCase()}<span style={{ color: 'var(--vermilion)' }}>&quot;</span></> : 'SEARCH'}
-            <span className="jp" style={{ fontSize: 50 }}>。</span>
+            <span className="jp" style={{ fontSize: 'clamp(28px, 6vw, 50px)' }}>。</span>
           </h1>
 
           <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -175,11 +175,11 @@ export default function SearchPage() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 800 }}>
+      <div className="search-layout-sm" style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 800 }}>
         <div
           style={{
             borderRight: '1.5px solid var(--ink)',
-            padding: 28,
+            padding: 'clamp(16px, 4vw, 28px)',
             background: 'var(--paper-2)',
           }}
         >
@@ -197,7 +197,7 @@ export default function SearchPage() {
           />
         </div>
 
-        <div style={{ padding: 28 }}>
+        <div style={{ padding: 'clamp(16px, 4vw, 28px)' }}>
           {error && (
             <p className="idx" style={{ color: 'var(--vermilion)', marginBottom: 18 }}>{error}</p>
           )}
@@ -221,6 +221,7 @@ export default function SearchPage() {
               <Link
                 key={r.malId}
                 href={`/anime/${r.malId}`}
+                className="search-row-sm"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '120px 1fr auto',
@@ -232,7 +233,7 @@ export default function SearchPage() {
                   textDecoration: 'none',
                 }}
               >
-                <div style={{ width: 120, height: 168 }}>
+                <div style={{ width: '100%', maxWidth: 120, height: 'auto', aspectRatio: '5 / 7' }}>
                   <PosterPlaceholder
                     title={(r.titleEnglish || r.title || '').split(/[:×]/)[0].trim().slice(0, 12)}
                     jp={(r.titleJapanese || '').slice(0, 2)}
@@ -256,7 +257,7 @@ export default function SearchPage() {
                       {(r.genres || []).slice(0, 2).map((g) => g.toUpperCase()).join(' · ') || '—'}
                     </span>
                   </div>
-                  <div className="display" style={{ fontSize: 30, lineHeight: 1 }}>
+                  <div className="display" style={{ fontSize: 'clamp(20px, 5vw, 30px)', lineHeight: 1 }}>
                     {highlight(r.titleEnglish || r.title, q)}
                   </div>
                   {r.titleJapanese && (
@@ -278,8 +279,8 @@ export default function SearchPage() {
                     </p>
                   )}
                 </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div className="display" style={{ fontSize: 36, color: 'var(--vermilion)' }}>
+                <div className="search-row-actions" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+                  <div className="display" style={{ fontSize: 'clamp(26px, 6vw, 36px)', color: 'var(--vermilion)' }}>
                     {r.score?.toFixed(2) ?? '—'}
                   </div>
                   <div className="idx" style={{ marginBottom: 16 }}>SCORE / 10</div>

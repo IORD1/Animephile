@@ -25,7 +25,7 @@ export default function Hero({ firstName, todayCount, subsCount, unreadCount, fe
   const epsLine = todayCount === 0 ? 'NO EPS DROP TODAY' : `${todayCount} EP${todayCount === 1 ? '' : 'S'} DROP TODAY`;
 
   return (
-    <div style={{ padding: '32px 28px', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
+    <div style={{ padding: 'clamp(20px, 4vw, 32px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
       <div
         style={{
           display: 'flex',
@@ -33,16 +33,17 @@ export default function Hero({ firstName, todayCount, subsCount, unreadCount, fe
           justifyContent: 'space-between',
           marginBottom: 20,
           gap: 24,
+          flexWrap: 'wrap',
         }}
       >
         <div>
           <div className="idx" style={{ marginBottom: 6 }}>
             — {TODAY_LABEL} · ALL TIMES JST
           </div>
-          <h1 className="display" style={{ fontSize: 76, lineHeight: 0.85, margin: 0 }}>
+          <h1 className="display" style={{ fontSize: 'clamp(36px, 9vw, 76px)', lineHeight: 0.85, margin: 0 }}>
             HEY <span style={{ color: 'var(--vermilion)' }}>{greetingName}</span>,
             <br />
-            {epsLine} <span className="jp" style={{ fontSize: 50 }}>。</span>
+            {epsLine} <span className="jp" style={{ fontSize: 'clamp(28px, 6vw, 50px)' }}>。</span>
           </h1>
         </div>
         <div className="bubble shadow-hard-sm" style={{ maxWidth: 260, transform: 'rotate(-1deg)' }}>
@@ -58,7 +59,7 @@ export default function Hero({ firstName, todayCount, subsCount, unreadCount, fe
       </div>
 
       {featured.length > 0 && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
+        <div className="hero-cards-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
           {featured.map((item, i) => {
             const variant = VARIANTS[i % VARIANTS.length];
             const accent = i === 1 ? 'red' : 'ink';

@@ -1,6 +1,6 @@
 export default function HomeFooter() {
   return (
-    <div style={{ padding: '32px 28px' }}>
+    <div style={{ padding: 'clamp(20px, 4vw, 32px) clamp(16px, 4vw, 28px)' }}>
       <div className="scan-rule" style={{ marginBottom: 18 }} />
       <div
         style={{
@@ -11,7 +11,7 @@ export default function HomeFooter() {
           flexWrap: 'wrap',
         }}
       >
-        <div className="display" style={{ fontSize: 28 }}>
+        <div className="display" style={{ fontSize: 'clamp(22px, 5vw, 28px)' }}>
           ANIMEPHILE{' '}
           <span className="jp" style={{ fontSize: 22, color: 'var(--vermilion)' }}>
             愛フィル

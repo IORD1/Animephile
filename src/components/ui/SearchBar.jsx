@@ -40,7 +40,7 @@ export default function SearchBar({
         background: 'var(--paper)',
         padding: '0 12px',
         height: 44,
-        width: wide ? '100%' : 360,
+        width: wide ? '100%' : 'min(360px, 100%)',
         boxShadow: '4px 4px 0 var(--ink)',
       }}
     >

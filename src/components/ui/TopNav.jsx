@@ -21,6 +21,7 @@ export default function TopNav({ user, logout, searchEnabled = true }) {
   return (
     <div style={{ borderBottom: '2.5px solid var(--ink)', background: 'var(--paper)' }}>
       <div
+        className="topnav-row-sm"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -29,8 +30,8 @@ export default function TopNav({ user, logout, searchEnabled = true }) {
         }}
       >
         <Logo />
-        <div style={{ width: 1.5, height: 32, background: 'var(--ink)' }} />
-        <nav style={{ display: 'flex', gap: 22, flex: 1 }}>
+        <div className="topnav-divider-sm" style={{ width: 1.5, height: 32, background: 'var(--ink)' }} />
+        <nav style={{ display: 'flex', gap: 'clamp(12px, 3vw, 22px)', flex: 1, flexWrap: 'wrap' }}>
           {NAV_ITEMS.map((it) => {
             const active = it.match(router.pathname);
             const count =
@@ -84,7 +85,9 @@ export default function TopNav({ user, logout, searchEnabled = true }) {
             );
           })}
         </nav>
-        <SearchBar enabled={searchEnabled} />
+        <div className="topnav-search-sm" style={{ display: 'flex' }}>
+          <SearchBar enabled={searchEnabled} />
+        </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <Link
             href="/profile"
@@ -97,7 +100,7 @@ export default function TopNav({ user, logout, searchEnabled = true }) {
             }}
           >
             <Avatar initials={initials} />
-            <div>
+            <div className="topnav-name-sm">
               <div style={{ fontWeight: 700, fontSize: 13 }}>{firstName}</div>
               <div className="mono" style={{ fontSize: 9, color: 'var(--muted)' }}>
                 VIEW PROFILE →

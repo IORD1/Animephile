@@ -237,7 +237,7 @@ export default function ProfilePage() {
 
       <div
         style={{
-          padding: '40px 28px',
+          padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)',
           borderBottom: '2.5px solid var(--ink)',
           position: 'relative',
           overflow: 'hidden',
@@ -248,10 +248,11 @@ export default function ProfilePage() {
           style={{ position: 'absolute', inset: 0, opacity: 0.08, pointerEvents: 'none' }}
         />
         <div
+          className="grid-stack-sm"
           style={{
             display: 'grid',
             gridTemplateColumns: 'auto 1fr auto',
-            gap: 32,
+            gap: 'clamp(16px, 4vw, 32px)',
             alignItems: 'center',
             position: 'relative',
           }}
@@ -259,10 +260,10 @@ export default function ProfilePage() {
           <div style={{ position: 'relative' }}>
             <div
               style={{
-                width: 160, height: 160, borderRadius: 999,
+                width: 'clamp(96px, 22vw, 160px)', height: 'clamp(96px, 22vw, 160px)', borderRadius: 999,
                 background: 'var(--vermilion)', color: 'var(--paper)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'Anton, sans-serif', fontSize: 78,
+                fontFamily: 'Anton, sans-serif', fontSize: 'clamp(42px, 10vw, 78px)',
                 border: '2.5px solid var(--ink)', boxShadow: '6px 6px 0 var(--ink)',
               }}
             >
@@ -282,7 +283,7 @@ export default function ProfilePage() {
             <div className="idx" style={{ marginBottom: 8 }}>
               — READER PROFILE · MEMBER {profile._id?.toString().slice(-6).toUpperCase() || ''}
             </div>
-            <div className="display" style={{ fontSize: 64, lineHeight: 0.85 }}>
+            <div className="display" style={{ fontSize: 'clamp(32px, 8vw, 64px)', lineHeight: 0.85, wordBreak: 'break-word' }}>
               {(profile.displayName || profile.email || 'User').toUpperCase()}
             </div>
             <div className="jp" style={{ fontSize: 18, color: 'var(--muted)', marginTop: 6 }}>
@@ -299,24 +300,25 @@ export default function ProfilePage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, auto)',
+              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: 0,
               border: '1.5px solid var(--ink)',
               background: 'var(--paper)',
+              width: '100%',
             }}
           >
             {stats.map((s, i) => (
               <div
                 key={s.l}
                 style={{
-                  padding: '16px 22px',
+                  padding: 'clamp(10px, 2vw, 16px) clamp(10px, 2vw, 22px)',
                   textAlign: 'center',
                   borderRight: i % 3 !== 2 ? '1.5px solid var(--ink)' : 'none',
                   borderBottom: i < 3 ? '1.5px solid var(--ink)' : 'none',
-                  minWidth: 110,
+                  minWidth: 0,
                 }}
               >
-                <div className="display" style={{ fontSize: 32, color: 'var(--vermilion)' }}>
+                <div className="display" style={{ fontSize: 'clamp(22px, 5vw, 32px)', color: 'var(--vermilion)' }}>
                   {s.n}
                 </div>
                 <div className="idx" style={{ marginTop: 4, fontSize: 9 }}>{s.l}</div>
@@ -328,7 +330,7 @@ export default function ProfilePage() {
 
       <div
         style={{
-          padding: '20px 28px',
+          padding: 'clamp(14px, 3vw, 20px) clamp(16px, 4vw, 28px)',
           borderBottom: '1.5px solid var(--ink)',
           background: 'var(--paper-2)',
           display: 'flex',
@@ -362,7 +364,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <div style={{ padding: 28 }}>
+      <div style={{ padding: 'clamp(16px, 4vw, 28px)' }}>
         <SectionHeader
           idx="01"
           kicker="EVERYTHING YOU FOLLOW"
@@ -397,6 +399,7 @@ export default function ProfilePage() {
         ) : (
           <div style={{ border: '1.5px solid var(--ink)', background: 'var(--paper)' }}>
             <div
+              className="subs-header-sm"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '100px 2.5fr 1fr 1.4fr 1fr auto',
@@ -436,6 +439,7 @@ export default function ProfilePage() {
                 <Link
                   key={s._id || s.malId}
                   href={`/anime/${s.malId}`}
+                  className="subs-row-sm"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '100px 2.5fr 1fr 1.4fr 1fr auto',
@@ -529,7 +533,7 @@ export default function ProfilePage() {
           </div>
         )}
 
-        <div style={{ marginTop: 32, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+        <div className="grid-2-stack-sm" style={{ marginTop: 32, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
           <div
             className="shadow-hard"
             style={{
