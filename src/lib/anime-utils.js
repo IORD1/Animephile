@@ -7,6 +7,27 @@ export function getPosterUrl(item) {
   );
 }
 
+export function dedupeAnime(items) {
+  const seenIds = new Set();
+  const seenTitles = new Set();
+  return (items || []).filter((t) => {
+    const key = (t.title_english || t.title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    if (t.mal_id != null && seenIds.has(t.mal_id)) return false;
+    if (key && seenTitles.has(key)) return false;
+    if (t.mal_id != null) seenIds.add(t.mal_id);
+    if (key) seenTitles.add(key);
+    return true;
+  });
+}
+
+export function sortByScore(items) {
+  return [...(items || [])].sort((a, b) => {
+    const sa = typeof a?.score === 'number' ? a.score : -Infinity;
+    const sb = typeof b?.score === 'number' ? b.score : -Infinity;
+    return sb - sa;
+  });
+}
+
 export function jikanToMangaDoc(item) {
   return {
     malId: item.mal_id,

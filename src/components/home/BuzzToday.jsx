@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Link from 'next/link';
 import SectionHeader from '../ui/SectionHeader';
 import { getPosterUrl } from '@/lib/anime-utils';
@@ -29,12 +30,22 @@ function snippet(text, n = 110) {
 }
 
 export default function BuzzToday({ items }) {
-  if (!items || items.length === 0) return null;
-  const top4 = items.slice(0, 4);
+  const top4 = useMemo(() => {
+    if (!items || items.length === 0) return [];
+    if (items.length <= 4) return items.slice(0, 4);
+    const arr = [...items];
+    for (let i = arr.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr.slice(0, 4);
+  }, [items]);
+
+  if (top4.length === 0) return null;
 
   return (
     <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)' }}>
-      <SectionHeader idx="04" kicker="WORD ON THE STREET" title="BUZZ TODAY" jp="話題" />
+      <SectionHeader idx="04" kicker="HOT OFF THE PRESS" title="MANGA BUZZ" jp="漫画" />
 
       <div className="buzz-grid-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
         {top4.map((item, i) => {

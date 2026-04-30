@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Logo from './ui/Logo';
 import PosterPlaceholder from './ui/PosterPlaceholder';
-import { getPosterUrl } from '@/lib/anime-utils';
+import { getPosterUrl, dedupeAnime, sortByScore } from '@/lib/anime-utils';
 import { approxAiredEpisode } from '@/lib/anime-time';
 
 export default function Login({ loginfunc }) {
@@ -14,7 +14,10 @@ export default function Login({ loginfunc }) {
       .catch(() => {});
   }, []);
 
-  const withCover = todayItems.filter((i) => getPosterUrl(i));
+  const withCover = useMemo(
+    () => sortByScore(dedupeAnime(todayItems)).filter((i) => getPosterUrl(i)),
+    [todayItems],
+  );
   const featured = withCover[0];
   const secondary = withCover[1];
   const featuredTitle = featured?.title_english || featured?.title || null;
