@@ -20,7 +20,7 @@ function formatToday() {
 
 const VARIANTS = ['stripes', 'halftone', 'stripes-loose'];
 
-export default function Hero({ firstName, todayCount, subsCount, unreadCount, featured, isFollowing, onFollow }) {
+export default function Hero({ firstName, todayCount, totalToday = 0, subsCount, unreadCount, featured, isFollowing, onFollow }) {
   const greetingName = (firstName || 'You').toUpperCase();
   const epsLine = todayCount === 0 ? 'NO EPS DROP TODAY' : `${todayCount} EP${todayCount === 1 ? '' : 'S'} DROP TODAY`;
 
@@ -59,7 +59,8 @@ export default function Hero({ firstName, todayCount, subsCount, unreadCount, fe
       </div>
 
       {featured.length > 0 && (
-        <div className="hero-cards-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
+        <>
+        <div className="hero-cards-sm" style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(3, featured.length)}, 1fr)`, gap: 18 }}>
           {featured.map((item, i) => {
             const variant = VARIANTS[i % VARIANTS.length];
             const accent = i === 1 ? 'red' : 'ink';
@@ -154,6 +155,23 @@ export default function Hero({ firstName, todayCount, subsCount, unreadCount, fe
             );
           })}
         </div>
+        {totalToday > 3 && (
+          <div style={{ marginTop: 18, textAlign: 'right' }}>
+            <Link
+              href="/today"
+              className="idx"
+              style={{
+                borderBottom: '1.5px solid var(--ink)',
+                paddingBottom: 2,
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              SEE ALL {totalToday} DROPS →
+            </Link>
+          </div>
+        )}
+        </>
       )}
     </div>
   );

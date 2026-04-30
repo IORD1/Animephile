@@ -7,6 +7,7 @@ import HomeFooter from '@/components/home/HomeFooter';
 import Login from '@/components/loginpage';
 import { useAuth } from '@/lib/AuthContext';
 import { useSubscriptions } from '@/lib/useSubscriptions';
+import { dedupeAnime, sortByScore } from '@/lib/anime-utils';
 
 export default function Home() {
   const { user, loading, login, logout } = useAuth();
@@ -37,16 +38,18 @@ export default function Home() {
   const subIds = useMemo(() => new Set(subs.map((s) => s.malId)), [subs]);
   const isFollowing = (malId) => subIds.has(malId);
 
+  const todayDeduped = useMemo(() => dedupeAnime(today), [today]);
+
   const featured = useMemo(() => {
-    if (!today.length) return [];
-    const followed = today.filter((t) => subIds.has(t.mal_id));
-    const pool = followed.length >= 3 ? followed : today;
-    return pool.slice(0, 3);
-  }, [today, subIds]);
+    if (!todayDeduped.length) return [];
+    const followed = todayDeduped.filter((t) => subIds.has(t.mal_id));
+    const pool = followed.length >= 3 ? followed : todayDeduped;
+    return sortByScore(pool).slice(0, 3);
+  }, [todayDeduped, subIds]);
 
   const todayCount = useMemo(
-    () => today.filter((t) => subIds.has(t.mal_id)).length,
-    [today, subIds],
+    () => todayDeduped.filter((t) => subIds.has(t.mal_id)).length,
+    [todayDeduped, subIds],
   );
 
   async function handleFollow(item) {
@@ -73,6 +76,7 @@ export default function Home() {
       <Hero
         firstName={firstName}
         todayCount={todayCount}
+        totalToday={todayDeduped.length}
         subsCount={subs.length}
         unreadCount={null}
         featured={featured}
