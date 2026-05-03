@@ -125,19 +125,11 @@ export default function InboxPage() {
   if (loading || !user) return null;
 
   return (
-    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+    <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
-      <div style={{ padding: '36px 28px', borderBottom: '2.5px solid var(--ink)' }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            gap: 18,
-            flexWrap: 'wrap',
-          }}
-        >
+      <div className="page-section" style={{ borderBottom: '2.5px solid var(--ink)' }}>
+        <div className="page-header-stack">
           <div>
             <div className="idx" style={{ marginBottom: 6 }}>
               — EVERY EMAIL WE&apos;VE SENT YOU · IN ONE PLACE
@@ -214,7 +206,7 @@ export default function InboxPage() {
 
       {error && <p className="idx" style={{ padding: 20, textAlign: 'center', color: 'var(--vermilion)' }}>{error}</p>}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', minHeight: 600 }}>
+      <div className="inbox-layout">
         <div style={{ borderRight: '1.5px solid var(--ink)' }}>
           {list === null ? (
             <p className="idx" style={{ padding: 32, textAlign: 'center' }}>LOADING…</p>
@@ -240,6 +232,7 @@ export default function InboxPage() {
                 return (
                   <div
                     key={n._id}
+                    className="inbox-row-sm"
                     role="button"
                     tabIndex={0}
                     onClick={() => { setSelected(n); markRead(n); }}
@@ -257,45 +250,47 @@ export default function InboxPage() {
                       cursor: 'pointer',
                     }}
                   >
-                    <div
-                      style={{
-                        width: 6,
-                        height: 60,
-                        background: isUnread ? 'var(--vermilion)' : 'transparent',
-                      }}
-                    />
-                    <div style={{ width: 64, height: 90 }}>
-                      <PosterPlaceholder
-                        title={titleShort}
-                        jp=""
-                        w={64}
-                        h={90}
-                        variant="halftone"
-                        imageUrl={cover}
+                    <div className="inbox-row-main" style={{ display: 'contents' }}>
+                      <div
+                        style={{
+                          width: 6,
+                          height: 60,
+                          background: isUnread ? 'var(--vermilion)' : 'transparent',
+                        }}
                       />
-                    </div>
-                    <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                        <span className={chipClassFor(type)} style={{ fontSize: 9 }}>
-                          {chipLabelFor(type)}
-                        </span>
-                        <span className="display" style={{ fontSize: 18 }}>
-                          {n.animeTitle || a.title || n.subject}
-                        </span>
-                        {isUnread && (
-                          <span
-                            style={{
-                              width: 8, height: 8, background: 'var(--vermilion)', borderRadius: 999,
-                            }}
-                          />
-                        )}
+                      <div style={{ width: 64, height: 90 }}>
+                        <PosterPlaceholder
+                          title={titleShort}
+                          jp=""
+                          w={64}
+                          h={90}
+                          variant="halftone"
+                          imageUrl={cover}
+                        />
                       </div>
-                      <div style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.4 }}>
-                        {n.subject}
+                      <div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
+                          <span className={chipClassFor(type)} style={{ fontSize: 9 }}>
+                            {chipLabelFor(type)}
+                          </span>
+                          <span className="display" style={{ fontSize: 18 }}>
+                            {n.animeTitle || a.title || n.subject}
+                          </span>
+                          {isUnread && (
+                            <span
+                              style={{
+                                width: 8, height: 8, background: 'var(--vermilion)', borderRadius: 999,
+                              }}
+                            />
+                          )}
+                        </div>
+                        <div style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.4 }}>
+                          {n.subject}
+                        </div>
+                        <div className="idx" style={{ marginTop: 8 }}>{formatWhen(n.sentAt)}</div>
                       </div>
-                      <div className="idx" style={{ marginTop: 8 }}>{formatWhen(n.sentAt)}</div>
                     </div>
-                    <div style={{ textAlign: 'right' }}>
+                    <div className="inbox-row-ep" style={{ textAlign: 'right' }}>
                       <div className="ep-badge">{ep}</div>
                       <div className="idx" style={{ marginTop: 4 }}>EP</div>
                     </div>
@@ -309,7 +304,7 @@ export default function InboxPage() {
           )}
         </div>
 
-        <div style={{ padding: 28, background: 'var(--paper-2)' }}>
+        <div className="inbox-preview-mobile" style={{ padding: 28, background: 'var(--paper-2)' }}>
           <div className="idx" style={{ marginBottom: 12 }}>— SELECTED · EMAIL PREVIEW</div>
           {selected ? (
             <EmailPreview notification={selected} userEmail={user.email} />

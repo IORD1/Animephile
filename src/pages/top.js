@@ -69,12 +69,12 @@ export default function TopPage() {
   const baseRank = (page - 1) * PAGE_SIZE;
 
   return (
-    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+    <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
-      <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
+      <div className="page-section" style={{ borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.08 }} />
-        <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 18, flexWrap: 'wrap' }}>
+        <div className="page-header-stack" style={{ position: 'relative' }}>
           <div>
             <div className="idx" style={{ marginBottom: 8 }}>
               — RANKED BY USER SCORE · LIVE FROM YOUR INDEX
@@ -91,7 +91,7 @@ export default function TopPage() {
         </div>
       </div>
 
-      <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)' }}>
+      <div className="page-section">
         <SectionHeader idx="01" kicker="THE LEADERBOARD" title="EVERYTHING WE'VE GOT" jp="ランキング" />
 
         {error && <p className="idx" style={{ color: 'var(--vermilion)', marginBottom: 18 }}>{error}</p>}
@@ -127,66 +127,72 @@ export default function TopPage() {
                     textDecoration: 'none',
                   }}
                 >
-                  <div
-                    className="display top-row-rank"
-                    style={{
-                      fontSize: 44,
-                      color: rank <= 3 ? 'var(--vermilion)' : 'var(--ink)',
-                      lineHeight: 0.9,
-                    }}
-                  >
-                    {formatRank(rank)}
-                  </div>
-                  <div className="top-row-poster" style={{ width: 80, height: 110 }}>
-                    <PosterPlaceholder
-                      title={(r.titleEnglish || r.title || '').split(/[:×]/)[0].trim().slice(0, 12)}
-                      jp={(r.titleJapanese || '').slice(0, 1)}
-                      w={80}
-                      h={110}
-                      variant={i % 2 ? 'halftone' : 'stripes'}
-                      imageUrl={cover}
-                    />
-                  </div>
-                  <div style={{ minWidth: 0 }}>
-                    <div className="display" style={{ fontSize: 22, lineHeight: 1, textTransform: 'none' }}>
-                      {r.titleEnglish || r.title}
+                  <div className="top-row-main" style={{ display: 'contents' }}>
+                    <div
+                      className="display top-row-rank"
+                      style={{
+                        fontSize: 44,
+                        color: rank <= 3 ? 'var(--vermilion)' : 'var(--ink)',
+                        lineHeight: 0.9,
+                      }}
+                    >
+                      {formatRank(rank)}
                     </div>
-                    {r.titleJapanese && (
-                      <div className="jp" style={{ fontSize: 13, color: 'var(--muted)', marginTop: 4 }}>
-                        {r.titleJapanese}
+                    <div className="top-row-poster" style={{ width: 80, height: 110 }}>
+                      <PosterPlaceholder
+                        title={(r.titleEnglish || r.title || '').split(/[:×]/)[0].trim().slice(0, 12)}
+                        jp={(r.titleJapanese || '').slice(0, 1)}
+                        w={80}
+                        h={110}
+                        variant={i % 2 ? 'halftone' : 'stripes'}
+                        imageUrl={cover}
+                      />
+                    </div>
+                    <div style={{ minWidth: 0 }}>
+                      <div className="display" style={{ fontSize: 22, lineHeight: 1, textTransform: 'none' }}>
+                        {r.titleEnglish || r.title}
                       </div>
-                    )}
-                    <div className="idx" style={{ marginTop: 6 }}>
-                      {(r.genres || []).slice(0, 3).map((g) => g.toUpperCase()).join(' · ') || '—'}
+                      {r.titleJapanese && (
+                        <div className="jp" style={{ fontSize: 13, color: 'var(--muted)', marginTop: 4 }}>
+                          {r.titleJapanese}
+                        </div>
+                      )}
+                      <div className="idx" style={{ marginTop: 6 }}>
+                        {(r.genres || []).slice(0, 3).map((g) => g.toUpperCase()).join(' · ') || '—'}
+                      </div>
                     </div>
                   </div>
-                  <div className="top-row-status">
-                    <div className="mono" style={{ fontSize: 11, fontWeight: 700 }}>
-                      {(r.status || 'UNKNOWN').toUpperCase()}
+                  <div className="top-row-meta">
+                    <div className="top-row-status">
+                      <div className="mono" style={{ fontSize: 11, fontWeight: 700 }}>
+                        {(r.status || 'UNKNOWN').toUpperCase()}
+                      </div>
+                      <div className="idx" style={{ marginTop: 4 }}>
+                        {r.episodes ? `${r.episodes} EPS` : '— EPS'}
+                      </div>
                     </div>
-                    <div className="idx" style={{ marginTop: 4 }}>
-                      {r.episodes ? `${r.episodes} EPS` : '— EPS'}
+                    <div className="top-row-score-cell" style={{ textAlign: 'right' }}>
+                      <div className="display" style={{ fontSize: 30, color: 'var(--vermilion)' }}>
+                        {r.score?.toFixed(2) ?? '—'}
+                      </div>
+                      <div className="idx" style={{ marginTop: 2 }}>SCORE / 10</div>
                     </div>
                   </div>
-                  <div className="top-row-score-cell" style={{ textAlign: 'right' }}>
-                    <div className="display" style={{ fontSize: 30, color: 'var(--vermilion)' }}>
-                      {r.score?.toFixed(2) ?? '—'}
-                    </div>
-                    <div className="idx" style={{ marginTop: 2 }}>SCORE / 10</div>
+                  <div className="top-row-actions">
+                    <button
+                      type="button"
+                      className={`btn ${followed ? 'btn-primary' : ''}`}
+                      style={{ padding: '8px 12px', fontSize: 11 }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (!followed) handleFollow(r);
+                      }}
+                      disabled={followed}
+                    >
+                      {followed ? '✓ FOLLOWING' : '+ FOLLOW'}
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    className={`btn ${followed ? 'btn-primary' : ''}`}
-                    style={{ padding: '8px 12px', fontSize: 11 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      if (!followed) handleFollow(r);
-                    }}
-                    disabled={followed}
-                  >
-                    {followed ? '✓ FOLLOWING' : '+ FOLLOW'}
-                  </button>
                 </Link>
               );
             })}

@@ -68,7 +68,7 @@ export default function BuzzDetailPage() {
   const status = statusLabel(manga.status);
 
   return (
-    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+    <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
       <div
@@ -88,8 +88,8 @@ export default function BuzzDetailPage() {
       </div>
 
       <div
+        className="page-section"
         style={{
-          padding: '40px 28px',
           borderBottom: '2.5px solid var(--ink)',
           position: 'relative',
           overflow: 'hidden',
@@ -97,6 +97,7 @@ export default function BuzzDetailPage() {
       >
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.1 }} />
         <div
+          className="detail-hero-sm"
           style={{
             display: 'grid',
             gridTemplateColumns: '320px 1fr 280px',
@@ -115,7 +116,7 @@ export default function BuzzDetailPage() {
                 imageUrl={manga.imageUrl}
               />
             </div>
-            <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div className="detail-actions-sm" style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 8 }}>
               <a
                 className="btn btn-primary"
                 style={{ justifyContent: 'center', padding: '14px' }}
@@ -149,7 +150,7 @@ export default function BuzzDetailPage() {
               </div>
             )}
 
-            <div style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
+            <div className="mobile-action-row" style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
               <span className={`chip ${manga.publishing ? 'chip-red' : 'chip-ink'}`}>
                 {manga.publishing ? '● PUBLISHING' : status}
               </span>
@@ -176,6 +177,7 @@ export default function BuzzDetailPage() {
                   color: 'var(--ink-2)',
                   whiteSpace: 'pre-wrap',
                 }}
+                className="detail-summary-sm"
               >
                 {manga.synopsis}
               </p>
@@ -192,6 +194,7 @@ export default function BuzzDetailPage() {
                 alignSelf: 'flex-start',
                 maxWidth: 600,
               }}
+              className="detail-quad-sm"
             >
               {[
                 { l: 'SCORE', v: manga.score?.toFixed(2) ?? '—', s: '/10', accent: true },
@@ -224,7 +227,7 @@ export default function BuzzDetailPage() {
           </div>
 
           <div
-            className="shadow-hard"
+            className="shadow-hard detail-side-sm"
             style={{
               background: 'var(--ink)',
               color: 'var(--paper)',

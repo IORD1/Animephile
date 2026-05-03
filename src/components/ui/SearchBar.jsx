@@ -32,6 +32,7 @@ export default function SearchBar({
 
   return (
     <form
+      className="searchbar-shell"
       onSubmit={onSubmit}
       style={{
         display: 'flex',
@@ -68,7 +69,7 @@ export default function SearchBar({
         }}
       />
       <div
-        className="mono"
+        className="mono desktop-only"
         style={{
           fontSize: 10,
           padding: '3px 6px',

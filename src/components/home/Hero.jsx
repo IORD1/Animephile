@@ -60,7 +60,7 @@ export default function Hero({ firstName, todayCount, totalToday = 0, subsCount,
 
       {featured.length > 0 && (
         <>
-        <div className="hero-cards-sm" style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(3, featured.length)}, 1fr)`, gap: 18 }}>
+        <div className="hero-cards-sm feature-grid-mobile" style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(3, featured.length)}, 1fr)`, gap: 18 }}>
           {featured.map((item, i) => {
             const variant = VARIANTS[i % VARIANTS.length];
             const accent = i === 1 ? 'red' : 'ink';
@@ -84,20 +84,13 @@ export default function Hero({ firstName, todayCount, totalToday = 0, subsCount,
                   display: 'block',
                 }}
               >
-                <div style={{ display: 'flex' }}>
-                  <div
-                    style={{
-                      width: 140,
-                      height: 200,
-                      flexShrink: 0,
-                      borderRight: '1.5px solid var(--ink)',
-                    }}
-                  >
+                <div className="hero-feature-card">
+                  <div className="hero-feature-poster">
                     <PosterPlaceholder
                       title={titleShort}
                       jp={jpShort}
-                      w={140}
-                      h={200}
+                      w="100%"
+                      h="100%"
                       variant={variant}
                       accent={accent}
                       imageUrl={poster}
@@ -120,7 +113,7 @@ export default function Hero({ firstName, todayCount, totalToday = 0, subsCount,
                     <div className="mono" style={{ fontSize: 10, color: 'var(--ink)', marginTop: 12 }}>
                       📡 {broadcast}
                     </div>
-                    <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
+                    <div className="mobile-action-row" style={{ display: 'flex', gap: 6, marginTop: 8 }}>
                       <button
                         type="button"
                         className={`btn ${followed ? 'btn-primary' : ''}`}

@@ -222,7 +222,7 @@ export default function AnimeDetailPage() {
   const genres = anime.genres || [];
 
   return (
-    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+    <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
       <div style={{ padding: '14px clamp(16px, 4vw, 28px)', borderBottom: '1.5px solid var(--ink)', background: 'var(--paper-2)' }}>
@@ -240,8 +240,8 @@ export default function AnimeDetailPage() {
       </div>
 
       <div
+        className="page-section"
         style={{
-          padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)',
           borderBottom: '2.5px solid var(--ink)',
           position: 'relative',
           overflow: 'hidden',
@@ -249,7 +249,7 @@ export default function AnimeDetailPage() {
       >
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.1 }} />
         <div
-          className="detail-main-sm"
+          className="detail-main-sm detail-hero-sm"
           style={{
             display: 'grid',
             gridTemplateColumns: '320px 1fr 280px',
@@ -269,7 +269,7 @@ export default function AnimeDetailPage() {
                 imageUrl={cover}
               />
             </div>
-            <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div className="detail-actions-sm" style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 8 }}>
               <button
                 type="button"
                 className="btn btn-primary"
@@ -320,7 +320,7 @@ export default function AnimeDetailPage() {
               </div>
             )}
 
-            <div style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
+            <div className="mobile-action-row" style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
               {anime.airing && <span className="chip chip-red">● AIRING NOW</span>}
               {studioName && <span className="chip">{studioName}</span>}
               {episodesLabel !== '—' && <span className="chip">{episodesLabel} EPS</span>}
@@ -336,13 +336,14 @@ export default function AnimeDetailPage() {
                   maxWidth: 580,
                   color: 'var(--ink-2)',
                 }}
+                className="detail-summary-sm"
               >
                 {anime.synopsis.length > 360 ? `${anime.synopsis.slice(0, 360).trim()}…` : anime.synopsis}
               </p>
             )}
 
             <div
-              className="detail-stats-sm"
+              className="detail-stats-sm detail-quad-sm"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
@@ -455,7 +456,7 @@ export default function AnimeDetailPage() {
       </div>
 
       {(recentAired.length > 0 || upcomingEpisodeNumber != null) && (
-        <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)' }}>
+        <div className="page-section" style={{ borderBottom: '2.5px solid var(--ink)' }}>
           <SectionHeader idx="01" kicker="THE EPISODE LOG" title="EPISODES" jp="エピソード" />
 
           <div className="detail-episodes-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14 }}>
@@ -552,7 +553,7 @@ export default function AnimeDetailPage() {
       )}
 
       {mainCharacters.length > 0 && (
-        <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)' }}>
+        <div className="page-section">
           <SectionHeader idx="02" kicker="WHO MADE THIS" title="CAST & STAFF" jp="制作" />
           <div className="characters-grid-sm" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 14 }}>
             {mainCharacters.map((c, i) => {

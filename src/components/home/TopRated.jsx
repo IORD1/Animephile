@@ -116,7 +116,7 @@ export default function TopRated({
         </Link>
 
         <div style={{ border: '1.5px solid var(--ink)', background: 'var(--paper)' }}>
-          {rest.map((s, i) => {
+            {rest.map((s, i) => {
             const rank = String(i + 2).padStart(2, '0');
             const followed = isFollowing(s.mal_id);
             const followers = s.members ? `${(s.members / 1000).toFixed(1)}K MEMBERS` : '';
@@ -124,6 +124,7 @@ export default function TopRated({
               <Link
                 key={s.mal_id}
                 href={`/anime/${s.mal_id}`}
+                className="top-rated-list-row-sm"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -134,48 +135,52 @@ export default function TopRated({
                   textDecoration: 'none',
                 }}
               >
-                <div className="display" style={{ fontSize: 'clamp(26px, 6vw, 36px)', color: 'var(--vermilion)', minWidth: 'clamp(36px, 8vw, 56px)' }}>
-                  {rank}
-                </div>
-                <div style={{ width: 50, height: 70, flexShrink: 0 }}>
-                  <PosterPlaceholder
-                    title=""
-                    w={50}
-                    h={70}
-                    variant="stripes-loose"
-                    imageUrl={getPosterUrl(s)}
-                  />
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div
-                    style={{
-                      fontWeight: 700,
-                      fontSize: 14,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {s.title_english || s.title}
+                <div className="top-rated-list-row-sm top-row-main" style={{ display: 'contents' }}>
+                  <div className="display" style={{ fontSize: 'clamp(26px, 6vw, 36px)', color: 'var(--vermilion)', minWidth: 'clamp(36px, 8vw, 56px)' }}>
+                    {rank}
                   </div>
-                  {followers && <div className="idx" style={{ marginTop: 4 }}>{followers}</div>}
+                  <div style={{ width: 50, height: 70, flexShrink: 0 }}>
+                    <PosterPlaceholder
+                      title=""
+                      w={50}
+                      h={70}
+                      variant="stripes-loose"
+                      imageUrl={getPosterUrl(s)}
+                    />
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 14,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {s.title_english || s.title}
+                    </div>
+                    {followers && <div className="idx" style={{ marginTop: 4 }}>{followers}</div>}
+                  </div>
+                  <div className="display top-rated-row-score" style={{ fontSize: 22 }}>
+                    {s.score?.toFixed(2) ?? '—'}
+                  </div>
+                  <div className="top-rated-row-actions" style={{ display: 'flex' }}>
+                    <button
+                      type="button"
+                      className={`btn ${followed ? 'btn-primary' : ''}`}
+                      style={{ padding: '6px 10px', fontSize: 10 }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (!followed) onFollow(s);
+                      }}
+                      disabled={followed}
+                    >
+                      {followed ? '✓' : '+ FOLLOW'}
+                    </button>
+                  </div>
                 </div>
-                <div className="display" style={{ fontSize: 22 }}>
-                  {s.score?.toFixed(2) ?? '—'}
-                </div>
-                <button
-                  type="button"
-                  className={`btn ${followed ? 'btn-primary' : ''}`}
-                  style={{ padding: '6px 10px', fontSize: 10 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (!followed) onFollow(s);
-                  }}
-                  disabled={followed}
-                >
-                  {followed ? '✓' : '+ FOLLOW'}
-                </button>
               </Link>
             );
           })}

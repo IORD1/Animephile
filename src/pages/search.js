@@ -37,6 +37,7 @@ export default function SearchPage() {
   const [subs, setSubs] = useState([]);
   const [genreFilters, setGenreFilters] = useState(new Set());
   const [statusFilters, setStatusFilters] = useState(new Set());
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const q = typeof router.query.q === 'string' ? router.query.q : '';
 
@@ -113,10 +114,10 @@ export default function SearchPage() {
   ];
 
   return (
-    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+    <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} searchEnabled />
 
-      <div style={{ padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)', borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
+      <div className="page-section" style={{ borderBottom: '2.5px solid var(--ink)', position: 'relative' }}>
         <div className="halftone-fade" style={{ position: 'absolute', inset: 0, opacity: 0.08 }} />
         <div style={{ position: 'relative' }}>
           <div className="idx" style={{ marginBottom: 8 }}>
@@ -131,6 +132,14 @@ export default function SearchPage() {
             <div style={{ flex: 1, maxWidth: 600, minWidth: 280 }}>
               <SearchBar wide enabled initialValue={q} />
             </div>
+            <button
+              type="button"
+              className="btn facet-toggle"
+              onClick={() => setFiltersOpen((open) => !open)}
+              style={{ padding: '10px 14px', fontSize: 11 }}
+            >
+              {filtersOpen ? 'HIDE FILTERS' : 'SHOW FILTERS'}
+            </button>
           </div>
 
           {activeFilters.length > 0 && (
@@ -177,10 +186,9 @@ export default function SearchPage() {
 
       <div className="search-layout-sm" style={{ display: 'grid', gridTemplateColumns: '260px 1fr', minHeight: 800 }}>
         <div
+          className={`facet-panel ${filtersOpen ? 'open' : ''}`}
           style={{
-            borderRight: '1.5px solid var(--ink)',
-            padding: 'clamp(16px, 4vw, 28px)',
-            background: 'var(--paper-2)',
+            display: 'block',
           }}
         >
           <FacetGroup
@@ -233,51 +241,53 @@ export default function SearchPage() {
                   textDecoration: 'none',
                 }}
               >
-                <div style={{ width: '100%', maxWidth: 120, height: 'auto', aspectRatio: '5 / 7' }}>
-                  <PosterPlaceholder
-                    title={(r.titleEnglish || r.title || '').split(/[:×]/)[0].trim().slice(0, 12)}
-                    jp={(r.titleJapanese || '').slice(0, 2)}
-                    w={120}
-                    h={168}
-                    variant={i % 2 ? 'halftone' : 'stripes'}
-                    accent={i === 0 ? 'red' : 'ink'}
-                    imageUrl={cover}
-                  />
-                </div>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, flexWrap: 'wrap' }}>
-                    <span
-                      className={`chip ${r.airing ? 'chip-red' : 'chip-ink'}`}
-                      style={{ fontSize: 9 }}
-                    >
-                      {(r.status || 'UNKNOWN').toUpperCase()}
-                    </span>
-                    <span className="idx">
-                      {r.episodes ? `${r.episodes} EPS` : '— EPS'} ·{' '}
-                      {(r.genres || []).slice(0, 2).map((g) => g.toUpperCase()).join(' · ') || '—'}
-                    </span>
+                <div className="search-row-main" style={{ display: 'contents' }}>
+                  <div style={{ width: '100%', maxWidth: 120, height: 'auto', aspectRatio: '5 / 7' }}>
+                    <PosterPlaceholder
+                      title={(r.titleEnglish || r.title || '').split(/[:×]/)[0].trim().slice(0, 12)}
+                      jp={(r.titleJapanese || '').slice(0, 2)}
+                      w={120}
+                      h={168}
+                      variant={i % 2 ? 'halftone' : 'stripes'}
+                      accent={i === 0 ? 'red' : 'ink'}
+                      imageUrl={cover}
+                    />
                   </div>
-                  <div className="display" style={{ fontSize: 'clamp(20px, 5vw, 30px)', lineHeight: 1 }}>
-                    {highlight(r.titleEnglish || r.title, q)}
-                  </div>
-                  {r.titleJapanese && (
-                    <div className="jp" style={{ fontSize: 16, color: 'var(--muted)', marginTop: 2 }}>
-                      {highlight(r.titleJapanese, q)}
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, flexWrap: 'wrap' }}>
+                      <span
+                        className={`chip ${r.airing ? 'chip-red' : 'chip-ink'}`}
+                        style={{ fontSize: 9 }}
+                      >
+                        {(r.status || 'UNKNOWN').toUpperCase()}
+                      </span>
+                      <span className="idx">
+                        {r.episodes ? `${r.episodes} EPS` : '— EPS'} ·{' '}
+                        {(r.genres || []).slice(0, 2).map((g) => g.toUpperCase()).join(' · ') || '—'}
+                      </span>
                     </div>
-                  )}
-                  {r.synopsis && (
-                    <p
-                      style={{
-                        fontSize: 13,
-                        lineHeight: 1.5,
-                        marginTop: 10,
-                        maxWidth: 540,
-                        color: 'var(--ink-2)',
-                      }}
-                    >
-                      {r.synopsis.length > 240 ? `${r.synopsis.slice(0, 240).trim()}…` : r.synopsis}
-                    </p>
-                  )}
+                    <div className="display" style={{ fontSize: 'clamp(20px, 5vw, 30px)', lineHeight: 1 }}>
+                      {highlight(r.titleEnglish || r.title, q)}
+                    </div>
+                    {r.titleJapanese && (
+                      <div className="jp" style={{ fontSize: 16, color: 'var(--muted)', marginTop: 2 }}>
+                        {highlight(r.titleJapanese, q)}
+                      </div>
+                    )}
+                    {r.synopsis && (
+                      <p
+                        style={{
+                          fontSize: 13,
+                          lineHeight: 1.5,
+                          marginTop: 10,
+                          maxWidth: 540,
+                          color: 'var(--ink-2)',
+                        }}
+                      >
+                        {r.synopsis.length > 240 ? `${r.synopsis.slice(0, 240).trim()}…` : r.synopsis}
+                      </p>
+                    )}
+                  </div>
                 </div>
                 <div className="search-row-actions" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
                   <div className="display" style={{ fontSize: 'clamp(26px, 6vw, 36px)', color: 'var(--vermilion)' }}>

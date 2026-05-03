@@ -3,6 +3,7 @@ import Link from 'next/link';
 export default function SectionHeader({ idx, title, jp, kicker, action, actionHref }) {
   return (
     <div
+      className="section-header-sm"
       style={{
         display: 'flex',
         alignItems: 'flex-end',
@@ -11,7 +12,7 @@ export default function SectionHeader({ idx, title, jp, kicker, action, actionHr
         gap: 24,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 16 }}>
+      <div className="section-header-main" style={{ display: 'flex', alignItems: 'flex-end', gap: 16, minWidth: 0 }}>
         {idx && (
           <div
             className="display"

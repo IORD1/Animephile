@@ -209,7 +209,7 @@ export default function ProfilePage() {
 
   if (!profile || !subs) {
     return (
-      <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+      <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
         <TopNav user={user} logout={logout} />
         <p className="idx" style={{ padding: 40, textAlign: 'center' }}>
           {error ? `ERROR — ${error}` : 'LOADING…'}
@@ -232,12 +232,12 @@ export default function ProfilePage() {
   ];
 
   return (
-    <div className="ink-root paper-bg" style={{ minHeight: '100vh' }}>
+    <div className="ink-root paper-bg page-shell" style={{ minHeight: '100vh' }}>
       <TopNav user={user} logout={logout} />
 
       <div
+        className="page-section"
         style={{
-          padding: 'clamp(24px, 5vw, 40px) clamp(16px, 4vw, 28px)',
           borderBottom: '2.5px solid var(--ink)',
           position: 'relative',
           overflow: 'hidden',
@@ -298,6 +298,7 @@ export default function ProfilePage() {
           </div>
 
           <div
+            className="mobile-stats-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
@@ -452,30 +453,32 @@ export default function ProfilePage() {
                     textDecoration: 'none',
                   }}
                 >
-                  <div style={{ width: 70, height: 96, position: 'relative' }}>
-                    <PosterPlaceholder
-                      title={(a.titleEnglish || a.title || s.animeTitle || '').split(/[:×]/)[0].trim().slice(0, 12)}
-                      jp={(a.titleJapanese || '').slice(0, 1)}
-                      w={70}
-                      h={96}
-                      variant={i % 2 ? 'halftone' : 'stripes'}
-                      imageUrl={cover}
-                    />
-                  </div>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.1 }}>
-                      {a.titleEnglish || a.title || s.animeTitle}
+                  <div className="subs-card-main" style={{ display: 'contents' }}>
+                    <div style={{ width: 70, height: 96, position: 'relative' }}>
+                      <PosterPlaceholder
+                        title={(a.titleEnglish || a.title || s.animeTitle || '').split(/[:×]/)[0].trim().slice(0, 12)}
+                        jp={(a.titleJapanese || '').slice(0, 1)}
+                        w={70}
+                        h={96}
+                        variant={i % 2 ? 'halftone' : 'stripes'}
+                        imageUrl={cover}
+                      />
                     </div>
-                    {a.titleJapanese && (
-                      <div className="jp" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 2 }}>
-                        {a.titleJapanese}
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.1 }}>
+                        {a.titleEnglish || a.title || s.animeTitle}
                       </div>
-                    )}
-                    <div className="idx" style={{ marginTop: 6 }}>
-                      {(a.genres || []).slice(0, 2).map((g) => g.toUpperCase()).join(' · ') || '—'}
-                    </div>
-                    <div className="idx" style={{ marginTop: 2, color: 'var(--muted)' }}>
-                      {formatFollowed(s.createdAt)}
+                      {a.titleJapanese && (
+                        <div className="jp" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 2 }}>
+                          {a.titleJapanese}
+                        </div>
+                      )}
+                      <div className="idx" style={{ marginTop: 6 }}>
+                        {(a.genres || []).slice(0, 2).map((g) => g.toUpperCase()).join(' · ') || '—'}
+                      </div>
+                      <div className="idx" style={{ marginTop: 2, color: 'var(--muted)' }}>
+                        {formatFollowed(s.createdAt)}
+                      </div>
                     </div>
                   </div>
                   <div>
@@ -507,7 +510,7 @@ export default function ProfilePage() {
                       {notifChip === 'PAUSED' ? '⏸ PAUSED' : `✉ ${notifChip}`}
                     </span>
                   </div>
-                  <div style={{ display: 'flex', gap: 6 }}>
+                  <div className="subs-card-actions" style={{ display: 'flex', gap: 6 }}>
                     <button
                       type="button"
                       className="btn"
